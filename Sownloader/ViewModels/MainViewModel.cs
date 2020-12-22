@@ -22,28 +22,22 @@ namespace Sownloader.ViewModels
     public class MainViewModel : Observable
     {
 
-        private readonly ISystemService _systemService;
         private readonly IDefaultPageService _defaultPageService;
         private readonly DownloadService _downloadService;
         private readonly UrlParserService _urlParserService;
         private readonly IHttpClientFactory _clientFactory;
-        private Uri _source;
-        private bool _isLoading = true;
-        private bool _isShowingFailedMessage;
-        private Visibility _isLoadingVisibility = Visibility.Visible;
-        private Visibility _failedMesageVisibility = Visibility.Collapsed;
-        private ICommand _refreshCommand;
-        private RelayCommand _browserBackCommand;
-        private RelayCommand _browserForwardCommand;
-        private ICommand _downloadCommand;
-        private WebView2 _webView;
-
+        private Uri? _source;
+        private ICommand? _refreshCommand;
+        private RelayCommand? _browserBackCommand;
+        private RelayCommand? _browserForwardCommand;
+        private ICommand? _downloadCommand;
+        private WebView2? _webView;
         private Performance? _performance;
         private double _progressPercentage;
-
-        private string _downloadStatus;
-
+        private Visibility _isDownloadStatusVisibility = Visibility.Collapsed;
+        private string _downloadStatus = String.Empty;
         private bool _isDownloading;
+        private bool _isAudioDownloadAvailable;
 
         public bool IsDownloading
         {
@@ -54,85 +48,37 @@ namespace Sownloader.ViewModels
                 IsDownloadStatusVisibility = value ? Visibility.Visible : Visibility.Collapsed;
             }
         }
-
         public string DownloadStatus
         {
             get { return _downloadStatus; }
             set { Set(ref _downloadStatus, value); }
         }
-
         public double ProgressPercentage
         {
             get { return _progressPercentage; }
             set { Set(ref _progressPercentage, value); }
         }
-
         public Performance? Performance
         {
             get { return _performance; }
             set { Set(ref _performance, value); }
         }
-
         public Uri Source
         {
-            get { return _source; }
+            get { return _source ?? new Uri("https://smule.com"); }
             set { Set(ref _source, value); }
         }
-
-        public bool IsLoading
-        {
-            get => _isLoading;
-            set
-            {
-                Set(ref _isLoading, value);
-                IsLoadingVisibility = value ? Visibility.Visible : Visibility.Collapsed;
-            }
-        }
-
-        public bool IsShowingFailedMessage
-        {
-            get => _isShowingFailedMessage;
-            set
-            {
-                Set(ref _isShowingFailedMessage, value);
-                FailedMesageVisibility = value ? Visibility.Visible : Visibility.Collapsed;
-            }
-        }
-
-        private Visibility _isDownloadStatusVisibility = Visibility.Collapsed;
-
         public Visibility IsDownloadStatusVisibility
         {
             get { return _isDownloadStatusVisibility; }
             set { Set(ref _isDownloadStatusVisibility, value); }
         }
-
-        public Visibility IsLoadingVisibility
-        {
-            get { return _isLoadingVisibility; }
-            set { Set(ref _isLoadingVisibility, value); }
-        }
-
-        public Visibility FailedMesageVisibility
-        {
-            get { return _failedMesageVisibility; }
-            set { Set(ref _failedMesageVisibility, value); }
-        }
-
-
-
-        private bool _isAudioDownloadAvailable;
-
         public bool IsAudioDownloadAvailable
         {
             get { return _isAudioDownloadAvailable; }
             private set { Set(ref _isAudioDownloadAvailable, value); }
         }
-
         public bool IsVideoDownloadAvailable => _performance is not null && _performance.video_media_mp4_url is not null;
-
-
-
         public ICommand RefreshCommand => _refreshCommand ?? (_refreshCommand = new RelayCommand(OnRefresh));
 
         public RelayCommand BrowserBackCommand => _browserBackCommand ?? (_browserBackCommand = new RelayCommand(() => _webView?.GoBack(), () => _webView?.CanGoBack ?? false));
@@ -141,18 +87,17 @@ namespace Sownloader.ViewModels
 
         public ICommand DownloadCommand => _downloadCommand ?? (_downloadCommand = new RelayCommand(async () => await OnDownload()));
 
-        public MainViewModel(ISystemService systemService, IDefaultPageService defaultPageService, DownloadService downloadService, UrlParserService urlParserService, IHttpClientFactory clientFactory)
+        public MainViewModel(IDefaultPageService defaultPageService, DownloadService downloadService, UrlParserService urlParserService, IHttpClientFactory clientFactory)
         {
-            _systemService = systemService;
             _defaultPageService = defaultPageService;
             _downloadService = downloadService;
             _urlParserService = urlParserService;
             _clientFactory = clientFactory;
             Source = _defaultPageService.GetDefaultPage();
-            _downloadService.ProgressChanged += _downloadService_ProgressChanged;
+            _downloadService.ProgressChanged += DownloadProgressChanged;
         }
 
-        private void _downloadService_ProgressChanged(long? totalFileSize, long totalBytesDownloaded, double? progressPercentage)
+        private void DownloadProgressChanged(long? totalFileSize, long totalBytesDownloaded, double? progressPercentage)
         {
             ProgressPercentage = progressPercentage is null ? 0 : (double)progressPercentage;
             DownloadStatus = $"{ProgressPercentage}%";
@@ -161,45 +106,30 @@ namespace Sownloader.ViewModels
         public void Initialize(WebView2 webView)
         {
             _webView = webView;
-
         }
-
-
         public async void OnNavigationCompleted(Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
-            IsLoading = false;
-            if (e != null && !e.IsSuccess)
-            {
-                // Use `e.WebErrorStatus` to vary the displayed message based on the error reason
-                IsShowingFailedMessage = true;
-            }
-
             BrowserBackCommand.OnCanExecuteChanged();
             BrowserForwardCommand.OnCanExecuteChanged();
 
             Source = _webView.Source;
 
-
             var html = await _webView.CoreWebView2.ExecuteScriptAsync("window.DataStore.Pages.Recording.performance");
             _performance = JsonSerializer.Deserialize<Performance>(html);
             IsAudioDownloadAvailable = _performance is not null;
         }
-
-
-
         private void OnRefresh()
-        {
-            IsShowingFailedMessage = false;
-            IsLoading = true;
+        {        
             _webView?.Reload();
         }
-
         private async Task OnDownload()
         {
             if (_performance is null)
                 return;
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = IsVideoDownloadAvailable ? "MP4 Video (*.mp4)|*.mp4|MP4 Audio (*.m4a)|*.m4a|MP3 Audio (*.mp3)|*.mp3" : "MP4 Audio (*.m4a)|*.m4a|MP3 Audio (*.mp3)|*.mp3";
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = IsVideoDownloadAvailable ? "MP4 Video (*.mp4)|*.mp4|MP4 Audio (*.m4a)|*.m4a|MP3 Audio (*.mp3)|*.mp3" : "MP4 Audio (*.m4a)|*.m4a|MP3 Audio (*.mp3)|*.mp3"
+            };
 
 
             if (saveFileDialog.ShowDialog() == true)
@@ -284,10 +214,7 @@ namespace Sownloader.ViewModels
                 DownloadStatus = "Finished";
                 IsDownloading = false;
             }
-
-            _systemService.OpenInWebBrowser(Source.AbsoluteUri);
         }
-
         private void StatusTryReport(int currentTry)
         {
             DownloadStatus = $"Try render performance {currentTry}/5";
