@@ -35,7 +35,7 @@ namespace Sownloader.ViewModels
         private ICommand _refreshCommand;
         private RelayCommand _browserBackCommand;
         private RelayCommand _browserForwardCommand;
-        private ICommand _openInBrowserCommand;
+        private ICommand _downloadCommand;
         private WebView2 _webView;
 
         private Performance? _performance;
@@ -139,7 +139,7 @@ namespace Sownloader.ViewModels
 
         public RelayCommand BrowserForwardCommand => _browserForwardCommand ?? (_browserForwardCommand = new RelayCommand(() => _webView?.GoForward(), () => _webView?.CanGoForward ?? false));
 
-        public ICommand OpenInBrowserCommand => _openInBrowserCommand ?? (_openInBrowserCommand = new RelayCommand(async () => await OnOpenInBrowser()));
+        public ICommand DownloadCommand => _downloadCommand ?? (_downloadCommand = new RelayCommand(async () => await OnDownload()));
 
         public MainViewModel(ISystemService systemService, IDefaultPageService defaultPageService, DownloadService downloadService, UrlParserService urlParserService, IHttpClientFactory clientFactory)
         {
@@ -194,7 +194,7 @@ namespace Sownloader.ViewModels
             _webView?.Reload();
         }
 
-        private async Task OnOpenInBrowser()
+        private async Task OnDownload()
         {
             if (_performance is null)
                 return;

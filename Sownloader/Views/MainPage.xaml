@@ -65,7 +65,7 @@
                 
 
                 <Button
-                    Command="{Binding OpenInBrowserCommand}"
+                    Command="{Binding DownloadCommand}"
                     Style="{StaticResource WebViewButtonStyle}"
                     ToolTip="{x:Static properties:Resources.WebViewPageOpenInBrowserButtonTooltip}"
                     AutomationProperties.Name="{x:Static properties:Resources.WebViewPageOpenInBrowserButtonTooltip}"
