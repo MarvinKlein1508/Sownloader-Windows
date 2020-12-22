@@ -24,13 +24,13 @@ namespace Sownloader.ViewModels
         private AppTheme _theme;
         private string _versionDescription;
 
-        private ICommand _setThemeCommand;
-        private ICommand _setBitrateCommand;
-        private ICommand _privacyStatementCommand;
-        private ICommand _helpCommand;
-        private ICommand _navigateToInfoCommand;
-
-        public ICommand NavigateToInfoCommand => _navigateToInfoCommand ?? (_navigateToInfoCommand = new RelayCommand(NavigateToInfo));
+        private ICommand? _setThemeCommand;
+        private ICommand? _setBitrateCommand;
+        private ICommand? _privacyStatementCommand;
+        private ICommand? _helpCommand;
+        private ICommand? _navigateToInfoCommand;
+        private ICommand? _newsCommand;
+        
 
 
         public AppTheme Theme
@@ -70,10 +70,9 @@ namespace Sownloader.ViewModels
         public ICommand SetThemeCommand => _setThemeCommand ?? (_setThemeCommand = new RelayCommand<string>(OnSetTheme));
         public ICommand SetBitrateCommand => _setBitrateCommand ?? (_setBitrateCommand = new RelayCommand<string>(OnSetBitrate));
         public ICommand PrivacyStatementCommand => _privacyStatementCommand ?? (_privacyStatementCommand = new RelayCommand(OnPrivacyStatement));
-
         public ICommand HelpCommand => _helpCommand ?? (_helpCommand = new RelayCommand(OnHelp));
-
-
+        public ICommand NewsCommand => _newsCommand ?? (_newsCommand = new RelayCommand(OnNews));
+        public ICommand NavigateToInfoCommand => _navigateToInfoCommand ?? (_navigateToInfoCommand = new RelayCommand(NavigateToInfo));
         public SettingsViewModel(IOptions<AppConfig> appConfig, IThemeSelectorService themeSelectorService, ISystemService systemService, IApplicationInfoService applicationInfoService, IBitrateSelectorServices bitrateSelectorService, IDefaultPageService defaultPageService, INavigationService navigationService)
         {
             _appConfig = appConfig.Value;
@@ -116,6 +115,8 @@ namespace Sownloader.ViewModels
             => _systemService.OpenInWebBrowser(_appConfig.PrivacyStatement);
 
         private void OnHelp()
-            => _systemService.OpenInWebBrowser(_appConfig.HelpStatement);
+            => _systemService.OpenInWebBrowser(_appConfig.HelpLink);
+        private void OnNews()
+            => _systemService.OpenInWebBrowser(_appConfig.NewsLink);
     }
 }

@@ -8,6 +8,7 @@
 
         public string PrivacyStatement { get; set; }
 
-        public string HelpStatement { get; set; }
+        public string HelpLink { get; set; }
+        public string NewsLink { get; set; }
     }
 }

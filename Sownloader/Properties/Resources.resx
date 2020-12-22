@@ -186,8 +186,8 @@
   <data name="WebViewPageLoadingText" xml:space="preserve">
     <value>Loading...</value>
   </data>
-  <data name="WebViewPageOpenInBrowserButtonTooltip" xml:space="preserve">
-    <value>Open in browser (Ctrl + T)</value>
+  <data name="MainPageDownloadSongButtonTooltip" xml:space="preserve">
+    <value>Download song (Ctrl + D)</value>
   </data>
   <data name="WebViewPageRefreshButtonTooltip" xml:space="preserve">
     <value>Refresh (F5)</value>

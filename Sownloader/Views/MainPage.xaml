@@ -14,7 +14,7 @@
         <KeyBinding Key="F5" Command="{Binding RefreshCommand}" />
         <KeyBinding Modifiers="Alt" Key="Left" Command="{Binding BrowserBackCommand}" />
         <KeyBinding Modifiers="Alt" Key="Right" Command="{Binding BrowserForwardCommand}" />
-        <KeyBinding Modifiers="Ctrl" Key="T" Command="{Binding OpenInBrowserCommand}" />
+        <KeyBinding Modifiers="Ctrl" Key="D" Command="{Binding DownloadCommand}" />
     </Page.InputBindings>
     
     <Grid>
@@ -67,8 +67,8 @@
                 <Button
                     Command="{Binding DownloadCommand}"
                     Style="{StaticResource WebViewButtonStyle}"
-                    ToolTip="{x:Static properties:Resources.WebViewPageOpenInBrowserButtonTooltip}"
-                    AutomationProperties.Name="{x:Static properties:Resources.WebViewPageOpenInBrowserButtonTooltip}"
+                    ToolTip="{x:Static properties:Resources.MainPageDownloadSongButtonTooltip}"
+                    AutomationProperties.Name="{x:Static properties:Resources.MainPageDownloadSongButtonTooltip}"
                     IsEnabled="{Binding IsAudioDownloadAvailable}">
                     <TextBlock
                         Style="{StaticResource SmallIconStyle}"

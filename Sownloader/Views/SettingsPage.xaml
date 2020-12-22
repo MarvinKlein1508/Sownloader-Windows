@@ -148,6 +148,15 @@
                 </TextBlock>
 
                 <TextBlock Margin="{StaticResource XSmallTopMargin}">
+                    <Hyperlink
+                        Command="{Binding NewsCommand}">
+                        <TextBlock Style="{StaticResource BodyTextStyle}">
+                            News
+                        </TextBlock>
+                    </Hyperlink>
+                </TextBlock>
+
+                <TextBlock Margin="{StaticResource XSmallTopMargin}">
                     <Hyperlink Cursor="Hand">
                         <i:Interaction.Triggers>
                            <i:EventTrigger EventName="Click">

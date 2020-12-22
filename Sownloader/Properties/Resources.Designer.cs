@@ -70,6 +70,15 @@ namespace Sownloader.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Download song (Ctrl + D) ähnelt.
+        /// </summary>
+        public static string MainPageDownloadSongButtonTooltip {
+            get {
+                return ResourceManager.GetString("MainPageDownloadSongButtonTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Main ähnelt.
         /// </summary>
         public static string MainPageTitle {
@@ -264,15 +273,6 @@ namespace Sownloader.Properties {
         public static string WebViewPageLoadingText {
             get {
                 return ResourceManager.GetString("WebViewPageLoadingText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Open in browser (Ctrl + T) ähnelt.
-        /// </summary>
-        public static string WebViewPageOpenInBrowserButtonTooltip {
-            get {
-                return ResourceManager.GetString("WebViewPageOpenInBrowserButtonTooltip", resourceCulture);
             }
         }
         
