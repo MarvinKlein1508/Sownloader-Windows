@@ -253,7 +253,7 @@ namespace Sownloader.ViewModels
 
                     string coverExtension = Path.GetExtension(coverUrl);
                     coverFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "covers", $"{HelperMethods.GenerateRandomString(5)}{coverExtension}");
-                    DownloadStatus = "Download cover art";
+                    DownloadStatus = "Downloading cover art...";
                     await _downloadService.StartDownload(coverUrl, coverFilePath);
                 }
 
