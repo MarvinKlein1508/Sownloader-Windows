@@ -14,7 +14,14 @@
     <Authors>Marvin Klein</Authors>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\logo_about_120x120.png" />
     <None Remove="Assets\logo_about_152x152.png" />
+    <None Remove="Assets\logo_about_16x16.png" />
+    <None Remove="Assets\logo_about_2000x2000.png" />
+    <None Remove="Assets\logo_about_256x256.png" />
+    <None Remove="Assets\logo_about_32x32.png" />
+    <None Remove="Assets\logo_about_64x64.png" />
+    <None Remove="Assets\logo_about_72x72.png" />
     <None Remove="Assets\logo_about_76x76.png" />
   </ItemGroup>
   <ItemGroup>
@@ -30,7 +37,14 @@
     <ProjectReference Include="..\Sownloader.Core\Sownloader.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\logo_about_120x120.png" />
     <Resource Include="Assets\logo_about_152x152.png" />
+    <Resource Include="Assets\logo_about_16x16.png" />
+    <Resource Include="Assets\logo_about_2000x2000.png" />
+    <Resource Include="Assets\logo_about_256x256.png" />
+    <Resource Include="Assets\logo_about_32x32.png" />
+    <Resource Include="Assets\logo_about_64x64.png" />
+    <Resource Include="Assets\logo_about_72x72.png" />
     <Resource Include="Assets\logo_about_76x76.png" />
   </ItemGroup>
 
