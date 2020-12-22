@@ -10,7 +10,7 @@ namespace Sownloader.Core.Services
 {
     public class DownloadService : IDisposable
     {
-
+        //TODO: DownloadQueue
 
         private readonly HttpClient _httpClient;
 
