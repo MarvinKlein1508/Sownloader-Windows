@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Text.Json;
@@ -26,6 +27,7 @@ namespace Sownloader.ViewModels
         private readonly DownloadService _downloadService;
         private readonly UrlParserService _urlParserService;
         private readonly IHttpClientFactory _clientFactory;
+        private readonly IBitrateSelectorServices _bitrateSelectorService;
         private Uri? _source;
         private ICommand? _refreshCommand;
         private RelayCommand? _browserBackCommand;
@@ -87,12 +89,13 @@ namespace Sownloader.ViewModels
 
         public ICommand DownloadCommand => _downloadCommand ?? (_downloadCommand = new RelayCommand(async () => await OnDownload()));
 
-        public MainViewModel(IDefaultPageService defaultPageService, DownloadService downloadService, UrlParserService urlParserService, IHttpClientFactory clientFactory)
+        public MainViewModel(IDefaultPageService defaultPageService, DownloadService downloadService, UrlParserService urlParserService, IHttpClientFactory clientFactory, IBitrateSelectorServices bitrateSelectorService)
         {
             _defaultPageService = defaultPageService;
             _downloadService = downloadService;
             _urlParserService = urlParserService;
             _clientFactory = clientFactory;
+            _bitrateSelectorService = bitrateSelectorService;
             Source = _defaultPageService.GetDefaultPage();
             _downloadService.ProgressChanged += DownloadProgressChanged;
         }
@@ -135,11 +138,11 @@ namespace Sownloader.ViewModels
             if (saveFileDialog.ShowDialog() == true)
             {
                 IsDownloading = true;
-                string fileExtension = Path.GetExtension(saveFileDialog.FileName);
+                string outputExtension = Path.GetExtension(saveFileDialog.FileName);
 
                 string? mediaUrl = String.Empty;
                 bool isVideo = false;
-                if (fileExtension.Equals(".mp4", StringComparison.OrdinalIgnoreCase))
+                if (outputExtension.Equals(".mp4", StringComparison.OrdinalIgnoreCase))
                 {
                     isVideo = true;
                     if (_performance.video_media_mp4_url is null)
@@ -161,14 +164,19 @@ namespace Sownloader.ViewModels
                     DownloadStatus = "Download failed. Timeout during rendering. Please try again.";
                     return;
                 }
+
                 mediaUrl = _urlParserService.ProcessRecording(isVideo ? _performance.video_media_mp4_url : _performance.media_url);
+                string inputExtension = Path.GetExtension(mediaUrl);
                 if (mediaUrl is null)
                 {
                     DownloadStatus = "Download failed. Could not parse URL.";
                     return;
                 }
                 DownloadStatus = "Start download...";
-                await _downloadService.StartDownload(mediaUrl, saveFileDialog.FileName);
+
+                string tempFileName = Path.Combine(Path.GetTempPath(), HelperMethods.GenerateRandomString(5) + inputExtension);
+
+                await _downloadService.StartDownload(mediaUrl, tempFileName);
                 string coverFilePath = String.Empty;
                 // Download Cover art
                 if (_performance.cover_url is not null)
@@ -188,7 +196,7 @@ namespace Sownloader.ViewModels
                 }
 
                 //Taglib#
-                TagLib.File.LocalFileAbstraction AudioFilePath = new TagLib.File.LocalFileAbstraction(saveFileDialog.FileName);
+                TagLib.File.LocalFileAbstraction AudioFilePath = new TagLib.File.LocalFileAbstraction(tempFileName);
                 TagLib.File AudioFile = TagLib.File.Create(AudioFilePath);
                 try
                 {
@@ -210,6 +218,37 @@ namespace Sownloader.ViewModels
                 {
                     //logfile.WriteLog("Unable to set ID3Tags for file <" + tempFile + ">" + Environment.NewLine + ex.Message, FileHandler.Logfile.LOGLEVEL.ERROR);
                 }
+
+                if(outputExtension.Equals(".mp3", StringComparison.OrdinalIgnoreCase))
+                {
+                    DownloadStatus = "Converting...";
+                    try
+                    {
+                        string tempFileNameConverted = $"{tempFileName[0..^4]}.mp3";
+                        using Process FFmpeg = new Process();
+                        FFmpeg.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        FFmpeg.StartInfo.FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ffmpeg.exe");
+                        FFmpeg.StartInfo.UseShellExecute = false;
+                        FFmpeg.StartInfo.CreateNoWindow = false;
+                        FFmpeg.StartInfo.Arguments = $"-i {tempFileName} -f mp3 -b:a {_bitrateSelectorService.GetCurrentBitrate()} -acodec libmp3lame {tempFileNameConverted}";
+                        FFmpeg.Start();
+
+                        await FFmpeg.WaitForExitAsync();
+                       
+                        FFmpeg.Dispose();
+                        FFmpeg.Close();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //logfile.WriteLog("Unable to convert files <" + tempFile + "> <output: " + outputExtension + ">" + Environment.NewLine + ex.Message, FileHandler.Logfile.LOGLEVEL.ERROR);
+                        throw;
+                    }
+                }
+
+                File.Copy($"{tempFileName[0..^4]}{outputExtension}", saveFileDialog.FileName, true);
+                File.Delete(tempFileName);
 
                 DownloadStatus = "Finished";
                 IsDownloading = false;
