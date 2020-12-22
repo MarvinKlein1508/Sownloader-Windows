@@ -207,29 +207,35 @@ namespace Sownloader.ViewModels
                 IsDownloading = true;
                 string fileExtension = Path.GetExtension(saveFileDialog.FileName);
 
-                string mediaUrl = String.Empty;
+                string? mediaUrl = String.Empty;
+                bool isVideo = false;
                 if (fileExtension.Equals(".mp4", StringComparison.OrdinalIgnoreCase))
                 {
-                    mediaUrl = _urlParserService.ProcessRecording(_performance.video_media_mp4_url.ToString());
+                    isVideo = true;
+                    if (_performance.video_media_mp4_url is null)
+                    {
+                        _performance = await _performance.RenderPerformance(_clientFactory, PerformanceType.Video, StatusTryReport);
+                    }
                 }
                 else
                 {
                     // The performance might not be rendered yet
                     if (_performance.media_url is null)
                     {
-                        _performance = await _performance.RenderPerformance(_clientFactory, (tries) =>
-                        {
-                            DownloadStatus = $"Try render performance {tries}/5";
-                        });
-
-                        if (_performance is null)
-                        {
-                            DownloadStatus = "Download failed. Timeout during rendering. Please try again.";
-                            return;
-                        }
+                        _performance = await _performance.RenderPerformance(_clientFactory, PerformanceType.Audio, StatusTryReport);
                     }
+                }
 
-                    mediaUrl = _urlParserService.ProcessRecording(_performance.media_url);
+                if (_performance is null)
+                {
+                    DownloadStatus = "Download failed. Timeout during rendering. Please try again.";
+                    return;
+                }
+                mediaUrl = _urlParserService.ProcessRecording(isVideo ? _performance.video_media_mp4_url : _performance.media_url);
+                if (mediaUrl is null)
+                {
+                    DownloadStatus = "Download failed. Could not parse URL.";
+                    return;
                 }
                 DownloadStatus = "Start download...";
                 await _downloadService.StartDownload(mediaUrl, saveFileDialog.FileName);
@@ -280,6 +286,11 @@ namespace Sownloader.ViewModels
             }
 
             _systemService.OpenInWebBrowser(Source.AbsoluteUri);
+        }
+
+        private void StatusTryReport(int currentTry)
+        {
+            DownloadStatus = $"Try render performance {currentTry}/5";
         }
     }
 }

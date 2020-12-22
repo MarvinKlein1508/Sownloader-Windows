@@ -52,7 +52,7 @@ namespace Sownloader.Core.Models
         public bool lyric_video { get; set; }
         public string lyrics { get; set; }
 
-        public async Task<Performance?> RenderPerformance(IHttpClientFactory clientFactory, Action<int> triesCallback)
+        public async Task<Performance?> RenderPerformance(IHttpClientFactory clientFactory, PerformanceType performanceType, Action<int> triesCallback)
         {
             //https://www.smule.com/p/2416676_112255176/render
             string renderUrl = $"https://smule.com/p/{performance_key}/render";
@@ -61,11 +61,11 @@ namespace Sownloader.Core.Models
 
             HttpResponseMessage response = await client.SendAsync(request);
 
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 // Rendering is done on server side and might take some time
                 string performanceDataUrl = $"https://smule.com/p/{performance_key}/json";
-                
+
                 // We are trying to get the rendered performance 5 times
                 for (int i = 0; i < 5; i++)
                 {
@@ -73,15 +73,28 @@ namespace Sownloader.Core.Models
                     await Task.Delay(TimeSpan.FromSeconds(3));
                     request = new HttpRequestMessage(HttpMethod.Get, performanceDataUrl);
                     response = await client.SendAsync(request);
-                    if(response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode)
                     {
                         var performance = await response.Content.ReadFromJsonAsync<Performance>();
-                        if(performance is not null && performance.media_url is not null)
+                        switch (performanceType)
                         {
-                            return performance;
-                        }
+                            case PerformanceType.Audio:
+                                if(performance is not null && performance.media_url is not null)
+                                {
+                                    return performance;
+                                }
+                                break;
+                            case PerformanceType.Video:
+                                if (performance is not null && performance.video_media_mp4_url is not null)
+                                {
+                                    return performance;
+                                }
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException(nameof(performanceType));
+                        }        
                     }
-                }   
+                }
             }
 
             // We could fetch a valid performance
@@ -89,6 +102,11 @@ namespace Sownloader.Core.Models
         }
     }
 
+    public enum PerformanceType
+    {
+        Audio,
+        Video
+    }
     public class Orig_Track_City
     {
         public string city { get; set; }

@@ -46,8 +46,11 @@ namespace Sownloader.Core.Services
             return charPool;
         }
 
-        public string ProcessRecording(string urlEncoded)
+        public string? ProcessRecording(string? urlEncoded)
         {
+            if (urlEncoded is null)
+                return null;
+
             if (2 > urlEncoded.Length || 0 != urlEncoded.IndexOf("e:"))
                 return urlEncoded;
 
