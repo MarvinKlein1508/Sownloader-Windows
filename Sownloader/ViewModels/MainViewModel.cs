@@ -129,6 +129,8 @@ namespace Sownloader.ViewModels
         {
             if (_performance is null)
                 return;
+            // Keep reference in case user visits another page during download progress
+            var tmpPerformance = _performance;
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = IsVideoDownloadAvailable ? "MP4 Video (*.mp4)|*.mp4|MP4 Audio (*.m4a)|*.m4a|MP3 Audio (*.mp3)|*.mp3" : "MP4 Audio (*.m4a)|*.m4a|MP3 Audio (*.mp3)|*.mp3"
@@ -145,27 +147,27 @@ namespace Sownloader.ViewModels
                 if (outputExtension.Equals(".mp4", StringComparison.OrdinalIgnoreCase))
                 {
                     isVideo = true;
-                    if (_performance.video_media_mp4_url is null)
+                    if (tmpPerformance.video_media_mp4_url is null)
                     {
-                        _performance = await _performance.RenderPerformance(_clientFactory, PerformanceType.Video, StatusTryReport);
+                        tmpPerformance = await tmpPerformance.RenderPerformance(_clientFactory, PerformanceType.Video, StatusTryReport);
                     }
                 }
                 else
                 {
                     // The performance might not be rendered yet
-                    if (_performance.media_url is null)
+                    if (tmpPerformance.media_url is null)
                     {
-                        _performance = await _performance.RenderPerformance(_clientFactory, PerformanceType.Audio, StatusTryReport);
+                        tmpPerformance = await tmpPerformance.RenderPerformance(_clientFactory, PerformanceType.Audio, StatusTryReport);
                     }
                 }
 
-                if (_performance is null)
+                if (tmpPerformance is null)
                 {
                     DownloadStatus = "Download failed. Timeout during rendering. Please try again.";
                     return;
                 }
 
-                mediaUrl = _urlParserService.ProcessRecording(isVideo ? _performance.video_media_mp4_url : _performance.media_url);
+                mediaUrl = _urlParserService.ProcessRecording(isVideo ? tmpPerformance.video_media_mp4_url : tmpPerformance.media_url)!;
                 string inputExtension = Path.GetExtension(mediaUrl);
                 if (mediaUrl is null)
                 {
@@ -181,7 +183,7 @@ namespace Sownloader.ViewModels
                 // Download Cover art
                 if (_performance.cover_url is not null)
                 {
-                    string coverUrl = _performance.cover_url;
+                    string coverUrl = tmpPerformance.cover_url;
 
                     // The cover url is not unified. It can start with either // or http:// or https://
                     if (coverUrl.Substring(0, 5) is not "https" and not "http:")
@@ -200,10 +202,10 @@ namespace Sownloader.ViewModels
                 TagLib.File AudioFile = TagLib.File.Create(AudioFilePath);
                 try
                 {
-                    AudioFile.Tag.Title = _performance.title;
-                    AudioFile.Tag.Performers = new string[] { _performance.performed_by };
-                    AudioFile.Tag.Album = _performance.app_uid;
-                    AudioFile.Tag.Year = Convert.ToUInt32(_performance.created_at.Year);
+                    AudioFile.Tag.Title = tmpPerformance.title;
+                    AudioFile.Tag.Performers = new string[] { tmpPerformance.performed_by };
+                    AudioFile.Tag.Album = tmpPerformance.app_uid;
+                    AudioFile.Tag.Year = Convert.ToUInt32(tmpPerformance.created_at.Year);
 
                     if (File.Exists(coverFilePath))
                     {
