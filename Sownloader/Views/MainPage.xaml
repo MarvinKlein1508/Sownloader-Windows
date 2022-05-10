@@ -8,7 +8,7 @@
     xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
     xmlns:properties="clr-namespace:Sownloader.Properties"
     mc:Ignorable="d"
-    d:DesignHeight="1193" d:DesignWidth="772"
+    d:DesignHeight="500" d:DesignWidth="772"
     DataContext="{Binding _viewModel}">
     <Page.InputBindings>
         <KeyBinding Key="F5" Command="{Binding RefreshCommand}" />
@@ -62,7 +62,7 @@
             </StackPanel >
             <TextBox Name="UrlTextBox" Text="{Binding Source}" Grid.Column="1" Margin="10" KeyUp="UrlTextBox_KeyUp"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                
+
 
                 <Button
                     Command="{Binding DownloadCommand}"
@@ -90,7 +90,7 @@
             Visibility="{Binding IsDownloadStatusVisibility}"
             Grid.Row="2">
             <ProgressBar Width="200" Value="{Binding ProgressPercentage}"></ProgressBar>
-            <TextBlock Style="{StaticResource BodyTextStyle}" d:Text="100%" Text="{Binding DownloadStatus}" />
+            <TextBlock Margin="{StaticResource XSmallLeftMargin}" Style="{StaticResource BodyTextStyle}" d:Text="100%" Text="{Binding DownloadStatus}" />
         </WrapPanel>
 
     </Grid>
