@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sownloader", "Sownloader\Sownloader.csproj", "{6B4F1400-84BA-49C8-8215-5F41E16E3A11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sownloader.Core", "Sownloader.Core\Sownloader.Core.csproj", "{9A4B67D0-B054-4D2F-A6F9-5480AAA7B10C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkControls", "DarkControls\DarkControls.csproj", "{EF488F8C-0312-4F33-A68C-7EA8FF4CAD0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABA3A232-09D0-4619-A8D8-9CE252A74C51}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.txt = CHANGELOG.txt
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B4F1400-84BA-49C8-8215-5F41E16E3A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B4F1400-84BA-49C8-8215-5F41E16E3A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B4F1400-84BA-49C8-8215-5F41E16E3A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B4F1400-84BA-49C8-8215-5F41E16E3A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A4B67D0-B054-4D2F-A6F9-5480AAA7B10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A4B67D0-B054-4D2F-A6F9-5480AAA7B10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A4B67D0-B054-4D2F-A6F9-5480AAA7B10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A4B67D0-B054-4D2F-A6F9-5480AAA7B10C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF488F8C-0312-4F33-A68C-7EA8FF4CAD0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF488F8C-0312-4F33-A68C-7EA8FF4CAD0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF488F8C-0312-4F33-A68C-7EA8FF4CAD0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF488F8C-0312-4F33-A68C-7EA8FF4CAD0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B8F8E7D-0ADC-4C6A-90D2-5B204187B19A}
+	EndGlobalSection
+EndGlobal

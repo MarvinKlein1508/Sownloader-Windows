@@ -1,0 +1,12 @@
++ Added WebView2 Webbrowser
++ Added Sownloader URL detection 3.0
++ FFmpeg is now included directly and does not need to be downloaded manually
++ Downloading a video as M4A does not longer require the file to be converted
+~ Settings are now being stored in appdata within a XML file
+~ Updated icons
+# Fixed Clipboard functionality not working in certain cases
+# Fixed Sownloader was unable to find any performance URLs
+- Removed GeckoFx WebBrowser
+- Removed option "Video Size" from settings
+- Removed ID3Tag window. Sownloader sets the meta tags automatically from now on
+- Removed Mozilla Public License from GeckoFX
