@@ -1,1 +1,13 @@
-Sownloader
+# Sownloader
+
+- [x] Implement Converter Form
+- Implement Tag Editor
+- Implement auto update
+- Implement update search
+- Fix Loading spinner while navigating
+- Fix shortcuts
+- Set icons in MenuStrip
+- Set icons for forms
+- Update update.bat for V9
+- Fix Tab indexes
+- Implement Serilog for logging
