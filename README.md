@@ -10,19 +10,19 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 
 ## TODOs before the official V9 release
 
-- [] Implement Converter Form
-- [] Implement Tag Editor
-- [] Implement auto update
-- [] Implement update search
-- [] Fix Loading spinner while navigating
-- [] Fix shortcuts
-- [] Set icons in MenuStrip
-- [] Set icons for forms
-- [] Update update.bat for V9
-- [] Fix Tab indexes
-- [] Implement Serilog for logging
+- [ ] Implement Converter Form
+- [ ] Implement Tag Editor
+- [ ] Implement auto update
+- [ ] Implement update search
+- [ ] Fix Loading spinner while navigating
+- [ ] Fix shortcuts
+- [ ] Set icons in MenuStrip
+- [ ] Set icons for forms
+- [ ] Update update.bat for V9
+- [ ] Fix Tab indexes
+- [ ] Implement Serilog for logging
 
 ## Roadmap for future versions
-- [] Add an option to generate the filename based on data from the performance
-- [] Add the profile downloader from Sownloader Web to the desktop app
-- [] Add Sownloader Undelete which can download recently deleted songs from Smule servers
+- [ ] Add an option to generate the filename based on data from the performance
+- [ ] Add the profile downloader from Sownloader Web to the desktop app
+- [ ] Add Sownloader Undelete which can download recently deleted songs from Smule servers
