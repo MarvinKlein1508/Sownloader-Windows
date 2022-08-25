@@ -123,7 +123,7 @@
             this.reloadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reloadToolStripMenuItem.Image")));
             this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
             this.reloadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reloadToolStripMenuItem.Text = "&Reload";
             this.reloadToolStripMenuItem.Click += new System.EventHandler(this.Refresh_Click);
             // 
@@ -133,7 +133,7 @@
             this.forwardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("forwardToolStripMenuItem.Image")));
             this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
             this.forwardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.forwardToolStripMenuItem.Text = "&Forward";
             this.forwardToolStripMenuItem.Click += new System.EventHandler(this.Forward_Click);
             // 
@@ -143,7 +143,7 @@
             this.backwardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("backwardToolStripMenuItem.Image")));
             this.backwardToolStripMenuItem.Name = "backwardToolStripMenuItem";
             this.backwardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.backwardToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.backwardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.backwardToolStripMenuItem.Text = "&Backward";
             this.backwardToolStripMenuItem.Click += new System.EventHandler(this.Backward_Click);
             // 
@@ -153,21 +153,21 @@
             this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.homeToolStripMenuItem.Text = "&Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // copyMediaURLToolStripMenuItem
             // 
             this.copyMediaURLToolStripMenuItem.Enabled = false;
             this.copyMediaURLToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.copyMediaURLToolStripMenuItem.Name = "copyMediaURLToolStripMenuItem";
-            this.copyMediaURLToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.copyMediaURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyMediaURLToolStripMenuItem.Text = "Copy &Media-URL";
             this.copyMediaURLToolStripMenuItem.Click += new System.EventHandler(this.CopyMediaURLToolStripMenuItem_Click);
             // 
@@ -177,7 +177,7 @@
             this.showListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showListToolStripMenuItem.Image")));
             this.showListToolStripMenuItem.Name = "showListToolStripMenuItem";
             this.showListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.showListToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.showListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showListToolStripMenuItem.Text = "&Show list";
             this.showListToolStripMenuItem.Click += new System.EventHandler(this.ShowListToolStripMenuItem_Click);
             // 
@@ -188,14 +188,14 @@
             this.addToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripMenuItem.Image")));
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "&Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -203,7 +203,7 @@
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -237,6 +237,7 @@
             // newsToolStripMenuItem
             // 
             this.newsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.newsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newsToolStripMenuItem.Image")));
             this.newsToolStripMenuItem.Name = "newsToolStripMenuItem";
             this.newsToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.newsToolStripMenuItem.Text = "N&ews";
@@ -245,6 +246,7 @@
             // marvinkleinmusicfavouritesToolStripMenuItem
             // 
             this.marvinkleinmusicfavouritesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.marvinkleinmusicfavouritesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("marvinkleinmusicfavouritesToolStripMenuItem.Image")));
             this.marvinkleinmusicfavouritesToolStripMenuItem.Name = "marvinkleinmusicfavouritesToolStripMenuItem";
             this.marvinkleinmusicfavouritesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.marvinkleinmusicfavouritesToolStripMenuItem.Text = "MarvinKleinMusic &favourites";
@@ -258,6 +260,7 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.settingsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingsToolStripMenuItem.Image")));
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.settingsToolStripMenuItem.Text = "&Settings";
@@ -278,7 +281,7 @@
             // 
             this.smuleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.smuleToolStripMenuItem.Name = "smuleToolStripMenuItem";
-            this.smuleToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.smuleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smuleToolStripMenuItem.Text = "Sm&ule";
             this.smuleToolStripMenuItem.Click += new System.EventHandler(this.SmuleToolStripMenuItem_Click);
             // 
@@ -286,20 +289,20 @@
             // 
             this.yokeeKaraokeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.yokeeKaraokeToolStripMenuItem.Name = "yokeeKaraokeToolStripMenuItem";
-            this.yokeeKaraokeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.yokeeKaraokeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.yokeeKaraokeToolStripMenuItem.Text = "Y&okee Karaoke";
             this.yokeeKaraokeToolStripMenuItem.Click += new System.EventHandler(this.YokeeKaraokeToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // smuleloginToolStripMenuItem
             // 
             this.smuleloginToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.smuleloginToolStripMenuItem.Name = "smuleloginToolStripMenuItem";
-            this.smuleloginToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.smuleloginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.smuleloginToolStripMenuItem.Text = "Smule &login";
             this.smuleloginToolStripMenuItem.Click += new System.EventHandler(this.SmuleloginToolStripMenuItem_Click);
             // 
@@ -321,6 +324,7 @@
             // helpToolStripMenuItem1
             // 
             this.helpToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.helpToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripMenuItem1.Image")));
             this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
             this.helpToolStripMenuItem1.Size = new System.Drawing.Size(181, 22);
             this.helpToolStripMenuItem1.Text = "&Help";
