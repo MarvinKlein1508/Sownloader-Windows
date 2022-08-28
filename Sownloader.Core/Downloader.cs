@@ -23,7 +23,10 @@ namespace Sownloader.Core
             _client.Timeout = TimeSpan.FromDays(1);
         }
     
-
+        public static async Task TriggerRenderAsync(string url)
+        {
+            var response = await _client.PostAsync(url, null);
+        }
         public async Task DownloadFileAsync(string url, string filename)
         {
             using HttpResponseMessage response = await _client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);

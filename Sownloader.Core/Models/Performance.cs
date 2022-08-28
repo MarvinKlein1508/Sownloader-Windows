@@ -3,17 +3,17 @@
 
     public class Performance
     {
-        public object rec_id { get; set; }
-        public object poi { get; set; }
+        public object? rec_id { get; set; }
+        public object? poi { get; set; }
         public string key { get; set; }
         public string performance_key { get; set; }
-        public object join_link { get; set; }
+        public object? join_link { get; set; }
         public string type { get; set; }
         public string title { get; set; }
         public string artist { get; set; }
-        public string message { get; set; }
+        public string? message { get; set; }
         public DateTime created_at { get; set; }
-        public object expire_at { get; set; }
+        public object? expire_at { get; set; }
         public bool seed { get; set; }
         public bool closed { get; set; }
         public string ensemble_type { get; set; }
@@ -22,15 +22,15 @@
         public string arr_type { get; set; }
         public string arr_key { get; set; }
         public object song_id { get; set; }
-        public int song_length { get; set; }
+        public int? song_length { get; set; }
         public string perf_status { get; set; }
-        public object artist_twitter { get; set; }
-        public string media_url { get; set; }
+        public object? artist_twitter { get; set; }
+        public string? media_url { get; set; }
         public string? video_media_url { get; set; }
         public string? video_media_mp4_url { get; set; }
         public string cover_url { get; set; }
         public string web_url { get; set; }
-        public string song_info_url { get; set; }
+        public string? song_info_url { get; set; }
         public PerformanceStats stats { get; set; }
         public string performed_by { get; set; }
         public string performed_by_url { get; set; }

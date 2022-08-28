@@ -1,4 +1,5 @@
 using Microsoft.WindowsAPICodePack.Taskbar;
+using Serilog;
 using Sownloader.Core;
 using Sownloader.Core.Models;
 using System.ComponentModel;
@@ -31,8 +32,23 @@ namespace Sownloader
         private async void MainWebView_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
         {
             TextBoxUrl.Text = MainWebView.Source.AbsoluteUri;
-            var json = await MainWebView.CoreWebView2.ExecuteScriptAsync("window.DataStore.Pages.Recording.performance");
-            _performance = JsonSerializer.Deserialize<Performance>(json);
+            try
+            {
+                var json = await MainWebView.CoreWebView2.ExecuteScriptAsync("window.DataStore.Pages.Recording.performance");
+                _performance = JsonSerializer.Deserialize<Performance>(json);
+
+                // If there is no media_url, we try to automatically render the performance by the server.
+                if(_performance is not null && _performance.media_url is null)
+                {
+                    Log.Information($"Could not find performance data. The performance needs to be rendered by Smule first. Send command to render performance. https://smule.com/p/{_performance.performance_key}/render");
+                    await Downloader.TriggerRenderAsync($"https://smule.com/p/{_performance.performance_key}/render");
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Could not fetch performance data. Url {url}; Error: {ex}", MainWebView.Source.AbsoluteUri, ex);
+                _performance = null;
+            }
 
             EnableControls();
             // TODO: Why does Properties.Ressources not work?
@@ -46,7 +62,7 @@ namespace Sownloader
             ButtonDownload.Enabled = _performance is not null && !_isDownloading;
             ButtonRemove.Enabled = !_isDownloading && DataGridViewDownloads.SelectedRows.Count > 0;
             PanelFooter.Visible = _isDownloading;
-            
+
 
             if (MainWebView.CanGoBack)
             {
@@ -201,7 +217,7 @@ namespace Sownloader
 
         private async void ButtonDownload_Click(object sender, EventArgs e)
         {
-            if(_downloadPerformances.Count is 0)
+            if (_downloadPerformances.Count is 0)
             {
                 Add_Click(ButtonDownload, EventArgs.Empty);
             }
@@ -215,7 +231,7 @@ namespace Sownloader
         private async Task DownloadAsync()
         {
             _isDownloading = true;
-            
+
             EnableControls();
             int anzahlDownloads = DataGridViewDownloads.Rows.Count;
             for (int i = 0; i < anzahlDownloads; i++)
@@ -226,18 +242,55 @@ namespace Sownloader
                 await Task.Run(async () =>
                 {
                     // Download song
-                    await controller.DownloadAsync();
+                    try
+                    {
+                        Log.Information("Download performance. Performance: {performance}; MediaUrl: {media_url}", performance.Performance.web_url, performance.GetDownloadUrl());
+                        await controller.DownloadAsync();
+                        Log.Information("Performance has been downloaded successfully! Performance: {performance}; MediaUrl: {media_url}", performance.Performance.web_url, performance.GetDownloadUrl());
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("Could not download performance {performance} Error: {error}", performance.Performance.web_url, ex);
+                    }
 
                     // Download cover
-                    await controller.DownloadCoverAsync();
+                    try
+                    {
+                        Log.Information("Download performance cover. Performance: {performance}; CoverUrl: {cover_url}", performance.Performance.web_url, performance.CoverUrl);
+                        await controller.DownloadCoverAsync();
+                        Log.Information("Performance cover has been downloaded successfully. Performance: {performance}; CoverUrl: {cover_url}", performance.Performance.web_url, performance.CoverUrl);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("Could not download cover for performance {performance} CoverURL: {cover_url} Error: {error}", performance.Performance.web_url, performance.CoverUrl, ex);
+                    }
 
                     // Set meta data
-                    await controller.SetMetaDataAsync();
+                    try
+                    {
+                        Log.Information("Set meta data for performance. Performance: {performance}", performance.Performance.web_url);
+                        await controller.SetMetaDataAsync();
+                        Log.Information("Meta data for performance has been set successfully. Performance: {performance}", performance.Performance.web_url);
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Error("Could not set meta data for performance {performance} Error: {error}", performance.Performance.web_url, ex);
+                    }
+
 
                     // Convert if neccessary
                     if (performance.RequiresConverting)
                     {
-                        await controller.ConvertAsync(_settings);
+                        try
+                        {
+                            Log.Information("Convert performance. Performance: {performance}; Input: {input}; Output: {output}", performance.Performance.web_url, performance.GetDownloadFilename(), performance.SavePath);
+                            await controller.ConvertAsync(_settings);
+                            Log.Information("Performance has been converted successfully. Performance: {performance}; Input: {input}; Output: {output}", performance.Performance.web_url, performance.GetDownloadFilename(), performance.SavePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error("Could not convert performance {performance} Error: {error}", performance.Performance.web_url, ex);
+                        }
                     }
                 });
 
