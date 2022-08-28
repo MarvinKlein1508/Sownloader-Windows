@@ -30,5 +30,6 @@ namespace Sownloader
         private void btnTaglibSharp_Click(object sender, EventArgs e) => Helpers.OpenUrl("https://taglib.github.io/");
 
         private void btnIconfinder_Click(object sender, EventArgs e) => Helpers.OpenUrl("https://www.iconfinder.com");
+        private void ButtonSerilog_Click(object sender, EventArgs e) => Helpers.OpenUrl("https://serilog.net/");
     }
 }

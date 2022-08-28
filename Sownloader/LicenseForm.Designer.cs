@@ -43,6 +43,7 @@
             this.TableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnIconfinder = new System.Windows.Forms.Button();
             this.btnTaglibSharp = new System.Windows.Forms.Button();
+            this.ButtonSerilog = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.TableLayoutPanel1.SuspendLayout();
@@ -214,9 +215,11 @@
             // 
             // TableLayoutPanel2
             // 
-            this.TableLayoutPanel2.ColumnCount = 2;
-            this.TableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutPanel2.ColumnCount = 3;
+            this.TableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.TableLayoutPanel2.Controls.Add(this.ButtonSerilog, 0, 0);
             this.TableLayoutPanel2.Controls.Add(this.btnIconfinder, 0, 0);
             this.TableLayoutPanel2.Controls.Add(this.btnTaglibSharp, 0, 0);
             this.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -236,10 +239,10 @@
             this.btnIconfinder.FlatAppearance.BorderSize = 0;
             this.btnIconfinder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIconfinder.ForeColor = System.Drawing.Color.White;
-            this.btnIconfinder.Location = new System.Drawing.Point(290, 3);
+            this.btnIconfinder.Location = new System.Drawing.Point(194, 3);
             this.btnIconfinder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnIconfinder.Name = "btnIconfinder";
-            this.btnIconfinder.Size = new System.Drawing.Size(278, 30);
+            this.btnIconfinder.Size = new System.Drawing.Size(182, 30);
             this.btnIconfinder.TabIndex = 5;
             this.btnIconfinder.Text = "iconfinder.com";
             this.btnIconfinder.UseVisualStyleBackColor = false;
@@ -256,11 +259,28 @@
             this.btnTaglibSharp.Location = new System.Drawing.Point(4, 3);
             this.btnTaglibSharp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnTaglibSharp.Name = "btnTaglibSharp";
-            this.btnTaglibSharp.Size = new System.Drawing.Size(278, 30);
+            this.btnTaglibSharp.Size = new System.Drawing.Size(182, 30);
             this.btnTaglibSharp.TabIndex = 4;
             this.btnTaglibSharp.Text = "Taglib#";
             this.btnTaglibSharp.UseVisualStyleBackColor = false;
             this.btnTaglibSharp.Click += new System.EventHandler(this.btnTaglibSharp_Click);
+            // 
+            // ButtonSerilog
+            // 
+            this.ButtonSerilog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(73)))));
+            this.ButtonSerilog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonSerilog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(73)))));
+            this.ButtonSerilog.FlatAppearance.BorderSize = 0;
+            this.ButtonSerilog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSerilog.ForeColor = System.Drawing.Color.White;
+            this.ButtonSerilog.Location = new System.Drawing.Point(384, 3);
+            this.ButtonSerilog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.ButtonSerilog.Name = "ButtonSerilog";
+            this.ButtonSerilog.Size = new System.Drawing.Size(184, 30);
+            this.ButtonSerilog.TabIndex = 6;
+            this.ButtonSerilog.Text = "Serilog";
+            this.ButtonSerilog.UseVisualStyleBackColor = false;
+            this.ButtonSerilog.Click += new System.EventHandler(this.ButtonSerilog_Click);
             // 
             // LicenseForm
             // 
@@ -304,5 +324,6 @@
         internal System.Windows.Forms.TableLayoutPanel TableLayoutPanel2;
         private System.Windows.Forms.Button btnIconfinder;
         private System.Windows.Forms.Button btnTaglibSharp;
+        private Button ButtonSerilog;
     }
 }
