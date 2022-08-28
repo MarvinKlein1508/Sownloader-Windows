@@ -16,6 +16,8 @@ namespace Sownloader
         private BindingList<DownloadPerformance> _downloadPerformances = new();
         private bool _isDownloading;
 
+        private ComponentResourceManager _resources = new ComponentResourceManager(typeof(MainForm));
+
         public MainForm(SownloaderSettings settings)
         {
             InitializeComponent();
@@ -33,6 +35,8 @@ namespace Sownloader
             _performance = JsonSerializer.Deserialize<Performance>(json);
 
             EnableControls();
+            // TODO: Why does Properties.Ressources not work?
+            ButtonRefresh.Image = (Image)_resources.GetObject("icon_refresh");
         }
 
         private void EnableControls()
@@ -97,7 +101,7 @@ namespace Sownloader
 
         private void AboutSownloader8ToolStripMenuItem_Click(object sender, EventArgs e) => NavigateWebView("http://sownloader.com/news/2018/04/06/introducing-sownloader-8/");
 
-        private void Refresh_Click(object sender, EventArgs e) => MainWebView.Refresh();
+        private void Refresh_Click(object sender, EventArgs e) => MainWebView.Reload();
 
         private void Backward_Click(object sender, EventArgs e) => MainWebView.GoBack();
 
@@ -290,6 +294,11 @@ namespace Sownloader
             TagEditorForm tagEditorForm = new TagEditorForm();
             tagEditorForm.Location = new Point(Location.X + Width / 2 - tagEditorForm.Width / 2, Location.Y + Height / 2 - tagEditorForm.Height / 2);
             tagEditorForm.ShowDialog();
+        }
+
+        private void MainWebView_NavigationStarting(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs e)
+        {
+            ButtonRefresh.Image = (Image)_resources.GetObject("icon_refresh_ajax");
         }
     }
 }

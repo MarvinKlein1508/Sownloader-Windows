@@ -515,6 +515,7 @@
             this.MainWebView.Size = new System.Drawing.Size(1177, 640);
             this.MainWebView.TabIndex = 2;
             this.MainWebView.ZoomFactor = 1D;
+            this.MainWebView.NavigationStarting += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs>(this.MainWebView_NavigationStarting);
             this.MainWebView.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.MainWebView_NavigationCompleted);
             // 
             // PanelFooter
