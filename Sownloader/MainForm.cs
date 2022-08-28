@@ -42,6 +42,8 @@ namespace Sownloader
                 {
                     Log.Information($"Could not find performance data. The performance needs to be rendered by Smule first. Send command to render performance. https://smule.com/p/{_performance.performance_key}/render");
                     await Downloader.TriggerRenderAsync($"https://smule.com/p/{_performance.performance_key}/render");
+
+                    // TODO: Add poup for user to display what he needs to do?
                 }
             }
             catch (Exception ex)
