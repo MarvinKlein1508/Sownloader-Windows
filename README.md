@@ -10,7 +10,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 
 ## TODOs before the official V9 release
 
-- [ ] Implement Converter Form
+- [x] Implement Converter Form
 - [ ] Implement Tag Editor
 - [ ] Implement auto update
 - [ ] Implement update search
