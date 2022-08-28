@@ -14,7 +14,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [x] Implement Tag Editor
 - [ ] Implement auto update
 - [ ] Implement update search
-- [ ] Fix Loading spinner while navigating
+- [x] Fix Loading spinner while navigating
 - [ ] Fix shortcuts
 - [ ] Set icons in MenuStrip
 - [ ] Set icons for forms
