@@ -15,7 +15,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [ ] Implement auto update
 - [ ] Implement update search
 - [x] Fix Loading spinner while navigating
-- [ ] Fix shortcuts
+- [x] Fix shortcuts
 - [x] Set icons in MenuStrip
 - [x] Set icons for forms
 - [ ] Update update.bat for V9
