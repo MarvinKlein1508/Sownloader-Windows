@@ -19,7 +19,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [x] Set icons in MenuStrip
 - [x] Set icons for forms
 - [ ] Update update.bat for V9
-- [ ] Fix Tab indexes
+- [x] Fix Tab indexes
 - [x] Implement Serilog for logging
 - [ ] Add license for Serilog to LicenseForm
 
