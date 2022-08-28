@@ -21,7 +21,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [x] Update update.bat for V9
 - [x] Fix Tab indexes
 - [x] Implement Serilog for logging
-- [ ] Add license for Serilog to LicenseForm
+- [x] Add license for Serilog to LicenseForm
 
 ## Roadmap for future versions
 - [ ] Add an option to generate the filename based on data from the performance
