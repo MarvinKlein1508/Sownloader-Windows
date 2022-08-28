@@ -271,11 +271,18 @@ namespace Sownloader
             TaskbarManager.Instance.SetProgressValue((int)progressPercentage, 100);
         }
 
-        private void licensesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LicensesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LicenseForm licenseForm = new LicenseForm();
             licenseForm.Location = new Point(this.Location.X + (int)(this.Width / 2) - (int)(licenseForm.Width / 2), this.Location.Y + (int)(this.Height / 2) - (int)(licenseForm.Height / 2));
             licenseForm.Show();
+        }
+
+        private void ConverterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConverterForm converterForm = new ConverterForm(_settings);
+            converterForm.Location = new Point(Location.X + Width / 2 - converterForm.Width / 2, Location.Y + Height / 2 - converterForm.Height / 2);
+            converterForm.ShowDialog();
         }
     }
 }
