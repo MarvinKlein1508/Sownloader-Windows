@@ -284,5 +284,12 @@ namespace Sownloader
             converterForm.Location = new Point(Location.X + Width / 2 - converterForm.Width / 2, Location.Y + Height / 2 - converterForm.Height / 2);
             converterForm.ShowDialog();
         }
+
+        private void tagEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TagEditorForm tagEditorForm = new TagEditorForm();
+            tagEditorForm.Location = new Point(Location.X + Width / 2 - tagEditorForm.Width / 2, Location.Y + Height / 2 - tagEditorForm.Height / 2);
+            tagEditorForm.ShowDialog();
+        }
     }
 }

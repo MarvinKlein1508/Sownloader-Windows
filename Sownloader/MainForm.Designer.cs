@@ -226,6 +226,7 @@
             this.tagEditorToolStripMenuItem.Name = "tagEditorToolStripMenuItem";
             this.tagEditorToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.tagEditorToolStripMenuItem.Text = "&Tag Editor";
+            this.tagEditorToolStripMenuItem.Click += new System.EventHandler(this.tagEditorToolStripMenuItem_Click);
             // 
             // converterToolStripMenuItem
             // 
