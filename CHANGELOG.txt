@@ -2,6 +2,8 @@
 + Added Sownloader URL detection 3.0
 + FFmpeg is now included directly and does not need to be downloaded manually
 + Downloading a video as M4A does not longer require the file to be converted
++ Sownloader will now detect when the performance needs to rendered by Smule first and sends automatically a request to initiate the render progress
+~ Converter has been minified. It now requests the output file on click on start converting.
 ~ Settings are now being stored in appdata within a XML file
 ~ Updated icons
 # Fixed Clipboard functionality not working in certain cases
