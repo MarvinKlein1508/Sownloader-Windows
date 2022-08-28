@@ -11,7 +11,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 ## TODOs before the official V9 release
 
 - [x] Implement Converter Form
-- [ ] Implement Tag Editor
+- [x] Implement Tag Editor
 - [ ] Implement auto update
 - [ ] Implement update search
 - [ ] Fix Loading spinner while navigating
