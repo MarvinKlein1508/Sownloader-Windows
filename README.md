@@ -17,7 +17,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [x] Fix Loading spinner while navigating
 - [ ] Fix shortcuts
 - [x] Set icons in MenuStrip
-- [ ] Set icons for forms
+- [x] Set icons for forms
 - [ ] Update update.bat for V9
 - [ ] Fix Tab indexes
 - [x] Implement Serilog for logging
