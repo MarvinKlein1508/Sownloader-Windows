@@ -16,11 +16,12 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [ ] Implement update search
 - [x] Fix Loading spinner while navigating
 - [ ] Fix shortcuts
-- [ ] Set icons in MenuStrip
+- [x] Set icons in MenuStrip
 - [ ] Set icons for forms
 - [ ] Update update.bat for V9
 - [ ] Fix Tab indexes
 - [x] Implement Serilog for logging
+- [ ] Add license for Serilog to LicenseForm
 
 ## Roadmap for future versions
 - [ ] Add an option to generate the filename based on data from the performance
