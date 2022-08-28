@@ -123,7 +123,7 @@
             this.reloadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reloadToolStripMenuItem.Image")));
             this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
             this.reloadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.reloadToolStripMenuItem.Text = "&Reload";
             this.reloadToolStripMenuItem.Click += new System.EventHandler(this.Refresh_Click);
             // 
@@ -133,7 +133,7 @@
             this.forwardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("forwardToolStripMenuItem.Image")));
             this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
             this.forwardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forwardToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.forwardToolStripMenuItem.Text = "&Forward";
             this.forwardToolStripMenuItem.Click += new System.EventHandler(this.Forward_Click);
             // 
@@ -143,7 +143,7 @@
             this.backwardToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("backwardToolStripMenuItem.Image")));
             this.backwardToolStripMenuItem.Name = "backwardToolStripMenuItem";
             this.backwardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.backwardToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.backwardToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.backwardToolStripMenuItem.Text = "&Backward";
             this.backwardToolStripMenuItem.Click += new System.EventHandler(this.Backward_Click);
             // 
@@ -153,21 +153,21 @@
             this.homeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("homeToolStripMenuItem.Image")));
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.homeToolStripMenuItem.Text = "&Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
             // 
             // copyMediaURLToolStripMenuItem
             // 
             this.copyMediaURLToolStripMenuItem.Enabled = false;
             this.copyMediaURLToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.copyMediaURLToolStripMenuItem.Name = "copyMediaURLToolStripMenuItem";
-            this.copyMediaURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyMediaURLToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.copyMediaURLToolStripMenuItem.Text = "Copy &Media-URL";
             this.copyMediaURLToolStripMenuItem.Click += new System.EventHandler(this.CopyMediaURLToolStripMenuItem_Click);
             // 
@@ -177,7 +177,7 @@
             this.showListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showListToolStripMenuItem.Image")));
             this.showListToolStripMenuItem.Name = "showListToolStripMenuItem";
             this.showListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.showListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showListToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.showListToolStripMenuItem.Text = "&Show list";
             this.showListToolStripMenuItem.Click += new System.EventHandler(this.ShowListToolStripMenuItem_Click);
             // 
@@ -188,14 +188,14 @@
             this.addToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripMenuItem.Image")));
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.addToolStripMenuItem.Text = "&Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.Add_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(165, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -203,7 +203,7 @@
             this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -284,7 +284,7 @@
             // 
             this.smuleToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.smuleToolStripMenuItem.Name = "smuleToolStripMenuItem";
-            this.smuleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.smuleToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.smuleToolStripMenuItem.Text = "Sm&ule";
             this.smuleToolStripMenuItem.Click += new System.EventHandler(this.SmuleToolStripMenuItem_Click);
             // 
@@ -292,20 +292,20 @@
             // 
             this.yokeeKaraokeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.yokeeKaraokeToolStripMenuItem.Name = "yokeeKaraokeToolStripMenuItem";
-            this.yokeeKaraokeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yokeeKaraokeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.yokeeKaraokeToolStripMenuItem.Text = "Y&okee Karaoke";
             this.yokeeKaraokeToolStripMenuItem.Click += new System.EventHandler(this.YokeeKaraokeToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
             // 
             // smuleloginToolStripMenuItem
             // 
             this.smuleloginToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.smuleloginToolStripMenuItem.Name = "smuleloginToolStripMenuItem";
-            this.smuleloginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.smuleloginToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.smuleloginToolStripMenuItem.Text = "Smule &login";
             this.smuleloginToolStripMenuItem.Click += new System.EventHandler(this.SmuleloginToolStripMenuItem_Click);
             // 
@@ -415,7 +415,7 @@
             this.ButtonDownload.Location = new System.Drawing.Point(1096, 7);
             this.ButtonDownload.Name = "ButtonDownload";
             this.ButtonDownload.Size = new System.Drawing.Size(78, 26);
-            this.ButtonDownload.TabIndex = 7;
+            this.ButtonDownload.TabIndex = 6;
             this.ButtonDownload.Text = "&Download";
             this.ButtonDownload.UseVisualStyleBackColor = false;
             this.ButtonDownload.Click += new System.EventHandler(this.ButtonDownload_Click);
@@ -433,7 +433,7 @@
             this.ButtonAdd.Location = new System.Drawing.Point(1040, 7);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(50, 26);
-            this.ButtonAdd.TabIndex = 6;
+            this.ButtonAdd.TabIndex = 5;
             this.ButtonAdd.Text = "&Add";
             this.ButtonAdd.UseVisualStyleBackColor = false;
             this.ButtonAdd.Click += new System.EventHandler(this.Add_Click);
@@ -448,7 +448,7 @@
             this.ButtonGoToUrl.Location = new System.Drawing.Point(1009, 7);
             this.ButtonGoToUrl.Name = "ButtonGoToUrl";
             this.ButtonGoToUrl.Size = new System.Drawing.Size(25, 25);
-            this.ButtonGoToUrl.TabIndex = 5;
+            this.ButtonGoToUrl.TabIndex = 4;
             this.ButtonGoToUrl.UseVisualStyleBackColor = true;
             this.ButtonGoToUrl.Click += new System.EventHandler(this.ButtonGoToUrl_Click);
             // 
@@ -461,7 +461,7 @@
             this.ButtonRefresh.Location = new System.Drawing.Point(65, 7);
             this.ButtonRefresh.Name = "ButtonRefresh";
             this.ButtonRefresh.Size = new System.Drawing.Size(25, 25);
-            this.ButtonRefresh.TabIndex = 4;
+            this.ButtonRefresh.TabIndex = 2;
             this.ButtonRefresh.UseVisualStyleBackColor = true;
             this.ButtonRefresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
