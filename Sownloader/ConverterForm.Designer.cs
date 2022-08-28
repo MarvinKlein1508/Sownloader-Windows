@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConverterForm));
             this.gbInput = new System.Windows.Forms.GroupBox();
             this.tbInput = new DarkControls.DarkThemeTextBox();
             this.btnInput = new DarkControls.DarkThemeButton();
@@ -135,6 +136,7 @@
             this.Controls.Add(this.cbShowFeed);
             this.Controls.Add(this.btnStartConverting);
             this.Controls.Add(this.gbInput);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ConverterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

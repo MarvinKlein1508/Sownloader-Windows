@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TagEditorForm));
             this.tbFile = new DarkControls.DarkThemeTextBox();
             this.btnChooseFile = new DarkControls.DarkThemeButton();
             this.grbID3 = new System.Windows.Forms.GroupBox();
@@ -330,6 +331,7 @@
             this.Controls.Add(this.btnChooseFile);
             this.Controls.Add(this.tbFile);
             this.ForeColor = System.Drawing.Color.White;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "TagEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

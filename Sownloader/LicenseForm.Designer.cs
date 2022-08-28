@@ -273,6 +273,7 @@
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "LicenseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

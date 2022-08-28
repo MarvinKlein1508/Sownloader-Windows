@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.LabelDefaultPage = new System.Windows.Forms.Label();
             this.LabelSavePath = new System.Windows.Forms.Label();
             this.ButtonBrowseSavePath = new DarkControls.DarkThemeButton();
@@ -217,6 +218,7 @@
             this.Controls.Add(this.ButtonBrowseSavePath);
             this.Controls.Add(this.LabelSavePath);
             this.Controls.Add(this.LabelDefaultPage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
