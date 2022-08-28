@@ -20,7 +20,7 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 - [ ] Set icons for forms
 - [ ] Update update.bat for V9
 - [ ] Fix Tab indexes
-- [ ] Implement Serilog for logging
+- [x] Implement Serilog for logging
 
 ## Roadmap for future versions
 - [ ] Add an option to generate the filename based on data from the performance
