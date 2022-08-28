@@ -355,5 +355,7 @@ namespace Sownloader
         {
             ButtonRefresh.Image = (Image)_resources.GetObject("icon_refresh_ajax");
         }
+
+       
     }
 }

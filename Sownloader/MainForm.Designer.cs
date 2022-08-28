@@ -508,7 +508,8 @@
             // 
             // MainWebView
             // 
-            this.MainWebView.AllowExternalDrop = true;
+            this.MainWebView.AllowExternalDrop = false;
+            this.MainWebView.CausesValidation = false;
             this.MainWebView.CreationProperties = null;
             this.MainWebView.DefaultBackgroundColor = System.Drawing.Color.White;
             this.MainWebView.Dock = System.Windows.Forms.DockStyle.Fill;
