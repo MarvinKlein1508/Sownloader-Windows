@@ -18,16 +18,7 @@
                 // Sownloader-API is only available for Sownloader. Identified by User-Agent.
                 _client.DefaultRequestHeaders.Add("User-Agent", $"Sownloader/{currentVersion}");
                 string version = await _client.GetStringAsync(VERSION_URL);
-                
-                int major, minor, build;
-                string[] ltVersion = version.Split('.');
-                if (ltVersion.Length > 1)
-                {
-                    major = Convert.ToInt32(ltVersion[0]);
-                    minor = Convert.ToInt32(ltVersion[1]);
-                    build = Convert.ToInt32(ltVersion[2]);
-                    return new Version(major, minor, build);
-                }
+                returnVersion = Version.Parse(version);
             }
             catch (Exception ex)
             {
