@@ -1,7 +1,5 @@
 ﻿using Serilog;
-using System.ComponentModel;
 using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Sownloader.Core
 {
