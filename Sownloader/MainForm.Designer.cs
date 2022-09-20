@@ -348,6 +348,7 @@
             this.searchForupdateToolStripMenuItem.Name = "searchForupdateToolStripMenuItem";
             this.searchForupdateToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.searchForupdateToolStripMenuItem.Text = "Search for &update";
+            this.searchForupdateToolStripMenuItem.Click += new System.EventHandler(this.searchForupdateToolStripMenuItem_Click);
             // 
             // sendFeedbackToolStripMenuItem
             // 

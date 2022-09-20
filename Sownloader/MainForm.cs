@@ -3,6 +3,7 @@ using Serilog;
 using Sownloader.Core;
 using Sownloader.Core.Models;
 using System.ComponentModel;
+using System.Reflection;
 using System.Text.Json;
 
 namespace Sownloader
@@ -356,6 +357,34 @@ namespace Sownloader
             ButtonRefresh.Image = (Image)_resources.GetObject("icon_refresh_ajax");
         }
 
-       
+        private async void searchForupdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Version installedVersion = Assembly.GetExecutingAssembly().GetName().Version!;
+
+#if DEBUG
+            installedVersion = new Version(1, 0, 0, 0);
+#endif 
+            UpdateSearch updateSearch = await UpdateSearch.CreateAsync(installedVersion);
+            
+
+            if (updateSearch.IsUpdateAvailable())
+            {
+                UpdateForm updateForm = new UpdateForm(updateSearch);
+                updateForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show
+                (
+                    text:"You are running the latest version of Sownloader", 
+                    caption: "Information", 
+                    buttons: MessageBoxButtons.OK, 
+                    icon: MessageBoxIcon.Information
+                );
+
+            }
+            
+
+        }
     }
 }

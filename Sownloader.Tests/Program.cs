@@ -2,7 +2,3 @@
 using Sownloader.Core;
 using System.Reflection;
 
-Version version = await UpdateSearch.SearchForUpdateAsync(Assembly.GetExecutingAssembly().GetName().Version);
-
-
-Console.WriteLine(version);
