@@ -12,8 +12,8 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 
 - [x] Implement Converter Form
 - [x] Implement Tag Editor
-- [ ] Implement auto update
-- [ ] Implement update search
+- [x] Implement auto update
+- [x] Implement update search
 - [x] Fix Loading spinner while navigating
 - [x] Fix shortcuts
 - [x] Set icons in MenuStrip
@@ -26,4 +26,6 @@ All requests are welcome! Just [create an issue on GitHub](https://github.com/Ma
 ## Roadmap for future versions
 - [ ] Add an option to generate the filename based on data from the performance
 - [ ] Add the profile downloader from Sownloader Web to the desktop app
-- [ ] Add Sownloader Undelete which can download recently deleted songs from Smule servers
+- [ ] Add Sownloader Undelete which can download recently deleted songs 
+from Smule servers
+- [ ] Validate SHA checksum of Sownloader.zip
