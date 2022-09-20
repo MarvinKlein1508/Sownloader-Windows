@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -49,21 +50,26 @@ namespace Sownloader
                 //lfg.WriteLog(wex.Message, FileHandler.Logfile.LOGLEVEL.ERROR);
             }
 
-            
+
 
             lblStatus.Text = "Searching for updates...";
 
-            //UpdateSearch updatesearch = new UpdateSearch();
-            //updatesearch.UpdateSearchFinished += Updatesearch_UpdateSearchFinished;
-            //updatesearch.SearchForUpdate();
+            Version installedVersion = Assembly.GetExecutingAssembly().GetName().Version!;
+#if DEBUG
+            installedVersion = new Version(1, 0, 0, 0);
+#endif
+            UpdateSearch updateSearch = await UpdateSearch.CreateAsync(installedVersion);
 
-            Updatesearch_UpdateSearchFinished(this, EventArgs.Empty);
-        }
+            if(updateSearch.IsUpdateAvailable())
+            {
+                UpdateForm updateForm = new UpdateForm(updateSearch);
+                updateForm.ShowDialog();
+            }
 
-        private void Updatesearch_UpdateSearchFinished(object sender, EventArgs e)
-        {
             lblStatus.Text = "Loading...";
             timerLoad.Enabled = true;
+
         }
+
     }
 }

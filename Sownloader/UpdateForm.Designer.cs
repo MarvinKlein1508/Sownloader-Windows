@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateForm));
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnUpdate = new DarkControls.DarkThemeButton();
             this.btnSkip = new DarkControls.DarkThemeButton();
@@ -45,11 +44,12 @@
             // 
             // lblInfo
             // 
-            this.lblInfo.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblInfo.ForeColor = System.Drawing.Color.White;
-            this.lblInfo.Location = new System.Drawing.Point(12, 9);
+            this.lblInfo.Location = new System.Drawing.Point(14, 10);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(485, 61);
+            this.lblInfo.Size = new System.Drawing.Size(566, 70);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "There is an update available for Sownloader! Please update to the latest version " +
     "of Sownloader to get the latest features and bugfixes.";
@@ -62,9 +62,10 @@
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(73)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(16, 139);
+            this.btnUpdate.Location = new System.Drawing.Point(19, 160);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(157, 48);
+            this.btnUpdate.Size = new System.Drawing.Size(183, 55);
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -78,9 +79,10 @@
             this.btnSkip.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(73)))));
             this.btnSkip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSkip.ForeColor = System.Drawing.Color.White;
-            this.btnSkip.Location = new System.Drawing.Point(179, 139);
+            this.btnSkip.Location = new System.Drawing.Point(209, 160);
+            this.btnSkip.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(157, 48);
+            this.btnSkip.Size = new System.Drawing.Size(183, 55);
             this.btnSkip.TabIndex = 2;
             this.btnSkip.Text = "Skip";
             this.btnSkip.UseVisualStyleBackColor = false;
@@ -94,9 +96,10 @@
             this.btnLater.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(69)))), ((int)(((byte)(73)))));
             this.btnLater.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLater.ForeColor = System.Drawing.Color.White;
-            this.btnLater.Location = new System.Drawing.Point(342, 139);
+            this.btnLater.Location = new System.Drawing.Point(399, 160);
+            this.btnLater.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLater.Name = "btnLater";
-            this.btnLater.Size = new System.Drawing.Size(157, 48);
+            this.btnLater.Size = new System.Drawing.Size(183, 55);
             this.btnLater.TabIndex = 3;
             this.btnLater.Text = "Update later";
             this.btnLater.UseVisualStyleBackColor = false;
@@ -104,22 +107,24 @@
             // 
             // lblLatestVersion
             // 
-            this.lblLatestVersion.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLatestVersion.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLatestVersion.ForeColor = System.Drawing.Color.White;
-            this.lblLatestVersion.Location = new System.Drawing.Point(3, 30);
+            this.lblLatestVersion.Location = new System.Drawing.Point(4, 34);
+            this.lblLatestVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLatestVersion.Name = "lblLatestVersion";
-            this.lblLatestVersion.Size = new System.Drawing.Size(412, 22);
+            this.lblLatestVersion.Size = new System.Drawing.Size(481, 25);
             this.lblLatestVersion.TabIndex = 4;
             this.lblLatestVersion.Text = "Latest version:";
             this.lblLatestVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblInstalledVersion
             // 
-            this.lblInstalledVersion.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstalledVersion.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblInstalledVersion.ForeColor = System.Drawing.Color.White;
-            this.lblInstalledVersion.Location = new System.Drawing.Point(3, 0);
+            this.lblInstalledVersion.Location = new System.Drawing.Point(4, 0);
+            this.lblInstalledVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInstalledVersion.Name = "lblInstalledVersion";
-            this.lblInstalledVersion.Size = new System.Drawing.Size(412, 22);
+            this.lblInstalledVersion.Size = new System.Drawing.Size(481, 25);
             this.lblInstalledVersion.TabIndex = 5;
             this.lblInstalledVersion.Text = "Installed version:";
             this.lblInstalledVersion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,62 +138,67 @@
             this.tableLayoutPanel1.Controls.Add(this.lblVersionOld, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblInstalledVersion, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblLatestVersion, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 73);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 84);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(483, 60);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(564, 69);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // lblVersionNew
             // 
-            this.lblVersionNew.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersionNew.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblVersionNew.ForeColor = System.Drawing.Color.White;
-            this.lblVersionNew.Location = new System.Drawing.Point(421, 30);
+            this.lblVersionNew.Location = new System.Drawing.Point(493, 34);
+            this.lblVersionNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVersionNew.Name = "lblVersionNew";
-            this.lblVersionNew.Size = new System.Drawing.Size(59, 22);
+            this.lblVersionNew.Size = new System.Drawing.Size(67, 25);
             this.lblVersionNew.TabIndex = 7;
             this.lblVersionNew.Text = "7.3.3";
             this.lblVersionNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblVersionOld
             // 
-            this.lblVersionOld.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVersionOld.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblVersionOld.ForeColor = System.Drawing.Color.White;
-            this.lblVersionOld.Location = new System.Drawing.Point(421, 0);
+            this.lblVersionOld.Location = new System.Drawing.Point(493, 0);
+            this.lblVersionOld.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVersionOld.Name = "lblVersionOld";
-            this.lblVersionOld.Size = new System.Drawing.Size(59, 22);
+            this.lblVersionOld.Size = new System.Drawing.Size(67, 25);
             this.lblVersionOld.TabIndex = 6;
             this.lblVersionOld.Text = "8.0.0";
             this.lblVersionOld.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pgbDownload
             // 
-            this.pgbDownload.Location = new System.Drawing.Point(16, 218);
+            this.pgbDownload.Location = new System.Drawing.Point(19, 252);
+            this.pgbDownload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pgbDownload.Name = "pgbDownload";
-            this.pgbDownload.Size = new System.Drawing.Size(483, 44);
+            this.pgbDownload.Size = new System.Drawing.Size(564, 51);
             this.pgbDownload.TabIndex = 7;
             this.pgbDownload.Visible = false;
             // 
             // lblStatus
             // 
-            this.lblStatus.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblStatus.ForeColor = System.Drawing.Color.White;
-            this.lblStatus.Location = new System.Drawing.Point(12, 193);
+            this.lblStatus.Location = new System.Drawing.Point(14, 223);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(487, 22);
+            this.lblStatus.Size = new System.Drawing.Size(568, 25);
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Downloading...";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblStatus.Visible = false;
             // 
-            // UpdateWindow
+            // UpdateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.ClientSize = new System.Drawing.Size(509, 272);
+            this.ClientSize = new System.Drawing.Size(594, 314);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.pgbDownload);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -197,10 +207,11 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.lblInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "UpdateWindow";
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "UpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sownloader - Update";
+            this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
