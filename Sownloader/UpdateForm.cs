@@ -15,9 +15,12 @@ namespace Sownloader
     public partial class UpdateForm : Form
     {
         private readonly UpdateSearch _updateSearch;
-        public UpdateForm(UpdateSearch updateSearch)
+        private readonly SownloaderSettings _settings;
+
+        public UpdateForm(UpdateSearch updateSearch, SownloaderSettings settings)
         {
-            this._updateSearch = updateSearch;
+            _updateSearch = updateSearch;
+            _settings = settings;
             InitializeComponent();
             lblVersionOld.Text = Application.ProductVersion;
             lblVersionNew.Text = updateSearch.LatestVersion?.ToString();
@@ -53,7 +56,8 @@ namespace Sownloader
         }
         private void ButtonSkip_Click(object sender, EventArgs e)
         {
-            //inifile.UpdateSkipVersion(lblVersionNew.Text);
+            _settings.SkipVersion = _updateSearch.LatestVersion!.ToString();
+            _settings.Save(Program.SOWNLOADER_SETTINGS_PATH);
             this.Close();
         }
     }

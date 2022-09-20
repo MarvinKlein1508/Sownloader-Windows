@@ -372,7 +372,7 @@ namespace Sownloader
 
             if (updateSearch.IsUpdateAvailable())
             {
-                UpdateForm updateForm = new UpdateForm(updateSearch);
+                UpdateForm updateForm = new UpdateForm(updateSearch, _settings);
                 updateForm.ShowDialog();
             }
             else

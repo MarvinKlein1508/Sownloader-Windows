@@ -62,10 +62,16 @@ namespace Sownloader
             installedVersion = new Version(1, 0, 0, 0);
 #endif
             UpdateSearch updateSearch = await UpdateSearch.CreateAsync(installedVersion);
+            _ = Version.TryParse(_settings.SkipVersion, out Version? skipVersion);
 
-            if(updateSearch.IsUpdateAvailable())
+            if(skipVersion is null)
             {
-                UpdateForm updateForm = new UpdateForm(updateSearch);
+                skipVersion = new Version(1, 0, 0, 0);
+            }
+
+            if(updateSearch.IsUpdateAvailable() && !updateSearch.SkipVersion(skipVersion))
+            {
+                UpdateForm updateForm = new UpdateForm(updateSearch, _settings);
                 updateForm.ShowDialog();
             }
 

@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
+﻿using Serilog;
+using System.ComponentModel;
+using System.Diagnostics;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Sownloader.Core
 {
     // TODO: Test without network connection
-    // TODO: Implement Skip Version
     public class UpdateSearch
     {
         private const string VERSION_URL = "https://sownloader.com/functions/getLatestVersion.php";
@@ -41,7 +43,7 @@ namespace Sownloader.Core
             }
             catch (Exception ex)
             {
-                //TODO: Logging
+                Log.Logger.Error("Cannot fetch update information. Error: {ex}", ex);
             }
         }
 
@@ -81,5 +83,6 @@ namespace Sownloader.Core
         }
 
         public bool IsUpdateAvailable() => InstalledVersion < LatestVersion;
+        public bool SkipVersion(Version skipVersion) => skipVersion == LatestVersion;
     }
 }

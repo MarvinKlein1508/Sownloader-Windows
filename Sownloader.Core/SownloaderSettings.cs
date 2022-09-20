@@ -14,6 +14,8 @@ namespace Sownloader.Core
         public string DefaultSavePath { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
         public string DefaultPage { get; set; } = "https://smule.com";
 
+        public string SkipVersion { get; set; } = "1.0.0";
+
         public void Save(string savePath)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(SownloaderSettings));
