@@ -6,6 +6,7 @@
 ~ Converter has been minified. It now requests the output file on click on start converting.
 ~ Settings are now being stored in appdata within a XML file
 ~ Updated icons
+~ The UpdateSearch has been updated to use HttpClient instead of obsolete HttpWebRequest
 # Fixed Clipboard functionality not working in certain cases
 # Fixed Sownloader was unable to find any performance URLs
 - Removed GeckoFx WebBrowser

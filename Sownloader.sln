@@ -12,10 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABA3A232-09D0-4619-A8D8-9CE252A74C51}"
 	ProjectSection(SolutionItems) = preProject
 		CHANGELOG.txt = CHANGELOG.txt
-		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sownloader.Tests", "Sownloader.Tests\Sownloader.Tests.csproj", "{299CB327-D3B2-4136-B4B4-F38C9806A618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sownloader.Tests", "Sownloader.Tests\Sownloader.Tests.csproj", "{299CB327-D3B2-4136-B4B4-F38C9806A618}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
