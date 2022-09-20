@@ -1,4 +1,7 @@
-﻿using Sownloader.Core;
+﻿#if DEBUG
+#define TEST_UPDATE_SERVICE
+#endif
+using Sownloader.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,7 +58,7 @@ namespace Sownloader
             lblStatus.Text = "Searching for updates...";
 
             Version installedVersion = Assembly.GetExecutingAssembly().GetName().Version!;
-#if DEBUG
+#if TEST_UPDATE_SERVICE
             installedVersion = new Version(1, 0, 0, 0);
 #endif
             UpdateSearch updateSearch = await UpdateSearch.CreateAsync(installedVersion);

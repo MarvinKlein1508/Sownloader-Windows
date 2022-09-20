@@ -1,9 +1,9 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Diagnostics;
 
 namespace Sownloader.Core
 {
+    // TODO: Test without network connection
+    // TODO: Implement Skip Version
     public class UpdateSearch
     {
         private const string VERSION_URL = "https://sownloader.com/functions/getLatestVersion.php";
