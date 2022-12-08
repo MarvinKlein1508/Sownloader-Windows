@@ -389,5 +389,7 @@ namespace Sownloader
             
 
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Environment.Exit(0);
     }
 }
