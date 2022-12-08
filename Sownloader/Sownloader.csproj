@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Version>9.0.0</Version>
+		<Version>9.0.1</Version>
 		<StartupObject>Sownloader.Program</StartupObject>
 		<Authors>Marvin Klein</Authors>
 		<Copyright>2022</Copyright>
