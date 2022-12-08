@@ -20,6 +20,8 @@ namespace Sownloader
         private SownloaderSettings _settings;
         private BindingList<DownloadPerformance> _downloadPerformances = new();
         private bool _isDownloading;
+        private Image _refreshImage;
+        private Image _refreshLoadingImage;
 
         private ComponentResourceManager _resources = new ComponentResourceManager(typeof(MainForm));
 
@@ -29,6 +31,8 @@ namespace Sownloader
             _settings = settings;
             DataGridViewDownloads.DataSource = _downloadPerformances;
             Downloader.ProgressChanged += Downloader_ProgressChanged;
+            _refreshImage = Image.FromFile("Resources/White/icon_refresh.png");
+            _refreshLoadingImage = Image.FromFile("Resources/White/icon_refresh_ajax.gif");
         }
 
 
@@ -42,7 +46,7 @@ namespace Sownloader
                 _performance = JsonSerializer.Deserialize<Performance>(json);
 
                 // If there is no media_url, we try to automatically render the performance by the server.
-                if(_performance is not null && _performance.media_url is null)
+                if (_performance is not null && _performance.media_url is null)
                 {
                     Log.Information($"Could not find performance data. The performance needs to be rendered by Smule first. Send command to render performance. https://smule.com/p/{_performance.performance_key}/render");
                     await Downloader.TriggerRenderAsync($"https://smule.com/p/{_performance.performance_key}/render");
@@ -57,8 +61,7 @@ namespace Sownloader
             }
 
             EnableControls();
-            // TODO: Why does Properties.Ressources not work?
-            ButtonRefresh.Image = (Image)_resources.GetObject("icon_refresh");
+            ButtonRefresh.Image = _refreshImage;
         }
 
         private void EnableControls()
@@ -357,7 +360,7 @@ namespace Sownloader
 
         private void MainWebView_NavigationStarting(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationStartingEventArgs e)
         {
-            ButtonRefresh.Image = (Image)_resources.GetObject("icon_refresh_ajax");
+            ButtonRefresh.Image = _refreshLoadingImage;
         }
 
         private async void searchForupdateToolStripMenuItem_Click(object sender, EventArgs e)
