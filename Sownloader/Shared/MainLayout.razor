@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+<div id="sidebar">
+    <img class="logo" src="/assets/images/logo-dark.png" alt="Sownloader logo" />
+    <nav>
+
+        <ul>
+            <li><NavLink href="/" Match="NavLinkMatch.All">Sownloader</NavLink></li>
+            <li><NavLink href="/settings" Match="NavLinkMatch.All">Settings</NavLink></li>
+            <li><NavLink href="/about" Match="NavLinkMatch.All">About</NavLink></li>
+        </ul>
+    </nav>
+</div>
+<div class="content-wrapper">
+    <main>
+        @Body
+    </main>
+    <footer>
+        <p>&copy; 2023 Marvin Klein</p>
+    </footer>
+</div>

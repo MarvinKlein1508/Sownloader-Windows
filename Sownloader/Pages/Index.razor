@@ -1,0 +1,37 @@
+﻿@page "/"
+@inject PerformanceService performanceService
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+
+
+
+<EditForm Model="Input" OnValidSubmit="LoadAsync">
+    <InputText @bind-Value="Input.URL" class="form-control" />
+</EditForm>
+
+@if(Performance is not null)
+{
+    <p>
+        <img src="@Performance.cover_url" />
+
+        <a href="@Performance.GetMediaUrlDecoded()" download>Download</a>
+        </p>
+}
+
+@code {
+    public SownloaderModel Input { get; set; } = new();
+
+    public Performance? Performance { get; set; }
+
+    public async Task LoadAsync()
+    {
+        Performance = await performanceService.GetAsync(Input.URL);   
+    }
+
+    public class SownloaderModel
+    {
+        public string URL { get; set; } = string.Empty;
+    }
+}
