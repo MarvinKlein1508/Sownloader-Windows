@@ -41,7 +41,7 @@
         public bool featured { get; set; }
         public object rm { get; set; }
         public bool _private { get; set; }
-        public bool lyric_video { get; set; }
+        public string lyric_video { get; set; }
         public string lyrics { get; set; }
         public PerformanceSegment[] segments { get; set; }
 
