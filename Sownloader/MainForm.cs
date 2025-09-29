@@ -322,7 +322,7 @@ namespace Sownloader
         {
             if (ProgressbarFortschritt.InvokeRequired)
             {
-                ProgressbarFortschritt.Invoke(new MethodInvoker(delegate ()
+                ProgressbarFortschritt.Invoke(new System.Windows.Forms.MethodInvoker(delegate ()
                 {
                     ProgressbarFortschritt.Value = (int)progressPercentage;
                 }));
