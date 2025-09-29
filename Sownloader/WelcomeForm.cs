@@ -1,5 +1,5 @@
 ﻿#if DEBUG
-#define TEST_UPDATE_SERVICE
+//#define TEST_UPDATE_SERVICE
 #endif
 using Sownloader.Core;
 using System;
