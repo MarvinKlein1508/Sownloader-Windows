@@ -2,14 +2,7 @@
 //#define TEST_UPDATE_SERVICE
 #endif
 using Sownloader.Core;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Reflection;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Sownloader
 {
@@ -64,12 +57,12 @@ namespace Sownloader
             UpdateSearch updateSearch = await UpdateSearch.CreateAsync(installedVersion);
             _ = Version.TryParse(_settings.SkipVersion, out Version? skipVersion);
 
-            if(skipVersion is null)
+            if (skipVersion is null)
             {
                 skipVersion = new Version(1, 0, 0, 0);
             }
 
-            if(updateSearch.IsUpdateAvailable() && !updateSearch.SkipVersion(skipVersion))
+            if (updateSearch.IsUpdateAvailable() && !updateSearch.SkipVersion(skipVersion))
             {
                 UpdateForm updateForm = new UpdateForm(updateSearch, _settings);
                 updateForm.ShowDialog();

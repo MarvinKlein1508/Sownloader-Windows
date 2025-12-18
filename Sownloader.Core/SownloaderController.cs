@@ -1,11 +1,5 @@
-﻿using Serilog;
-using Sownloader.Core.Models;
-using System;
-using System.Collections.Generic;
+﻿using Sownloader.Core.Models;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sownloader.Core
 {
@@ -91,7 +85,7 @@ namespace Sownloader.Core
 
             File.Delete(filename);
 
-            return Task.CompletedTask;  
+            return Task.CompletedTask;
         }
     }
 }

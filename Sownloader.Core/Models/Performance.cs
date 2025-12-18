@@ -52,7 +52,7 @@
 
         public string? GetVideoMediaUrlDecoded()
         {
-            if(string.IsNullOrWhiteSpace(video_media_mp4_url))
+            if (string.IsNullOrWhiteSpace(video_media_mp4_url))
             {
                 return null;
             }

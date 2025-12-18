@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sownloader.Core
+﻿namespace Sownloader.Core
 {
     public static class UrlParser
     {
@@ -89,7 +83,7 @@ namespace Sownloader.Core
 
             if (0 != urlDecoded.IndexOf("http"))
             {
-                return $"Failed to decode URL { urlEncoded }; got { urlDecoded }";
+                return $"Failed to decode URL {urlEncoded}; got {urlDecoded}";
             }
 
             return urlDecoded;

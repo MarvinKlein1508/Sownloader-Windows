@@ -1,28 +1,21 @@
-﻿using Sownloader.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sownloader.Core
+﻿namespace Sownloader.Core
 {
     public class Downloader
     {
-        
+
 
         public delegate void ProgressChangedHandler(long? totalFileSize, long totalBytesDownloaded, double? progressPercentage);
 
         public static event ProgressChangedHandler? ProgressChanged;
 
         private static HttpClient _client = new HttpClient();
-        
+
 
         static Downloader()
         {
             _client.Timeout = TimeSpan.FromDays(1);
         }
-    
+
         public static async Task TriggerRenderAsync(string url)
         {
             var response = await _client.PostAsync(url, null);
@@ -33,7 +26,7 @@ namespace Sownloader.Core
             await DownloadFromResponse(response, filename);
         }
 
-       
+
 
         private async Task DownloadFromResponse(HttpResponseMessage response, string filename)
         {

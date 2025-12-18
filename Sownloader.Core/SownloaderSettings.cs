@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Sownloader.Core
 {
@@ -36,7 +31,7 @@ namespace Sownloader.Core
                 XmlSerializer serializer = new XmlSerializer(typeof(SownloaderSettings));
                 using FileStream stream = new FileStream(savePath, FileMode.Open, FileAccess.Read);
                 object? settings = serializer.Deserialize(stream);
-                if(settings is null)
+                if (settings is null)
                 {
                     return new SownloaderSettings();
                 }
@@ -48,7 +43,7 @@ namespace Sownloader.Core
 
                 return new SownloaderSettings();
             }
-            
+
         }
 
         public object Clone()

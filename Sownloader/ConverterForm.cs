@@ -1,12 +1,6 @@
 ﻿using Sownloader.Core;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Sownloader
 {
@@ -25,9 +19,9 @@ namespace Sownloader
         private void tbInput_TextChanged(object sender, EventArgs e)
         {
             btnStartConverting.Enabled = tbInput.Text.Length > 0;
-            _input = tbInput.Text;   
+            _input = tbInput.Text;
         }
-        
+
         private async void btnStartConverting_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
@@ -97,8 +91,8 @@ namespace Sownloader
                 MessageBox.Show
                 (
                     text: $"Converting has been canceled{Environment.NewLine}{Environment.NewLine}{ex}",
-                    caption: "Error", 
-                    buttons: MessageBoxButtons.OK, 
+                    caption: "Error",
+                    buttons: MessageBoxButtons.OK,
                     icon: MessageBoxIcon.Error
                 );
 
@@ -107,12 +101,12 @@ namespace Sownloader
 
             MessageBox.Show
             (
-                text: "Converting has been finished!", 
-                caption: "Finished", 
-                buttons: MessageBoxButtons.OK, 
+                text: "Converting has been finished!",
+                caption: "Finished",
+                buttons: MessageBoxButtons.OK,
                 icon: MessageBoxIcon.Information
             );
         }
-        
+
     }
 }

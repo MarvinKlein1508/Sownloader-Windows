@@ -46,7 +46,7 @@ namespace Sownloader
 
             SownloaderSettings settings = new SownloaderSettings();
 
-            if(!File.Exists(SOWNLOADER_SETTINGS_PATH))
+            if (!File.Exists(SOWNLOADER_SETTINGS_PATH))
             {
                 Log.Information("No configuration found. Create default configuration.");
                 settings.Save(SOWNLOADER_SETTINGS_PATH);

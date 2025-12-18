@@ -371,7 +371,7 @@ namespace Sownloader
             installedVersion = new Version(1, 0, 0, 0);
 #endif 
             UpdateSearch updateSearch = await UpdateSearch.CreateAsync(installedVersion);
-            
+
 
             if (updateSearch.IsUpdateAvailable())
             {
@@ -382,14 +382,14 @@ namespace Sownloader
             {
                 MessageBox.Show
                 (
-                    text:"You are running the latest version of Sownloader", 
-                    caption: "Information", 
-                    buttons: MessageBoxButtons.OK, 
+                    text: "You are running the latest version of Sownloader",
+                    caption: "Information",
+                    buttons: MessageBoxButtons.OK,
                     icon: MessageBoxIcon.Information
                 );
 
             }
-            
+
 
         }
 
