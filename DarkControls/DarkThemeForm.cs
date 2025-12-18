@@ -1,10 +1,9 @@
-﻿namespace DarkControls
+﻿namespace DarkControls;
+
+public class DarkThemeForm : Form
 {
-    public class DarkThemeForm : Form
+    public DarkThemeForm()
     {
-        public DarkThemeForm()
-        {
-            BackColor = Color.FromArgb(45, 45, 48);
-        }
+        BackColor = Color.FromArgb(45, 45, 48);
     }
 }

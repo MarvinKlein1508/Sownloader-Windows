@@ -1,13 +1,12 @@
-﻿namespace DarkControls
+﻿namespace DarkControls;
+
+public class DarkThemeTextBox : TextBox
 {
-    public class DarkThemeTextBox : TextBox
+    public DarkThemeTextBox()
     {
-        public DarkThemeTextBox()
-        {
-            BackColor = Color.FromArgb(61, 61, 65);
-            base.BorderStyle = BorderStyle.FixedSingle;
-            ForeColor = Color.White;
-            Font = new Font("Consolas", 12f);
-        }
+        BackColor = Color.FromArgb(61, 61, 65);
+        base.BorderStyle = BorderStyle.FixedSingle;
+        ForeColor = Color.White;
+        Font = new Font("Consolas", 12f);
     }
 }
