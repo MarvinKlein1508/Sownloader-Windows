@@ -23,7 +23,7 @@ namespace Sownloader
             InitializeComponent();
             lblStatus.Parent = pbLogo;
             lblVersion.Parent = pbLogo;
-            lblVersion.Text = Application.ProductVersion;
+            lblVersion.Text = SownloaderConstants.GetVersion();
         }
 
         private void Timer_Tick(object sender, EventArgs e)

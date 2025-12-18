@@ -28,93 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeForm));
-            this.panelMain = new System.Windows.Forms.Panel();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.timerLoad = new System.Windows.Forms.Timer(this.components);
-            this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
-            this.SuspendLayout();
+            panelMain = new Panel();
+            lblVersion = new Label();
+            lblStatus = new Label();
+            pbLogo = new PictureBox();
+            timerLoad = new System.Windows.Forms.Timer(components);
+            panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbLogo).BeginInit();
+            SuspendLayout();
             // 
             // panelMain
             // 
-            this.panelMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMain.Controls.Add(this.lblVersion);
-            this.panelMain.Controls.Add(this.lblStatus);
-            this.panelMain.Controls.Add(this.pbLogo);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.ForeColor = System.Drawing.SystemColors.Control;
-            this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(456, 242);
-            this.panelMain.TabIndex = 0;
+            panelMain.BorderStyle = BorderStyle.FixedSingle;
+            panelMain.Controls.Add(lblVersion);
+            panelMain.Controls.Add(lblStatus);
+            panelMain.Controls.Add(pbLogo);
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.ForeColor = SystemColors.Control;
+            panelMain.Location = new Point(0, 0);
+            panelMain.Margin = new Padding(4, 3, 4, 3);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(456, 242);
+            panelMain.TabIndex = 0;
             // 
             // lblVersion
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.BackColor = System.Drawing.Color.Transparent;
-            this.lblVersion.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblVersion.ForeColor = System.Drawing.Color.Gray;
-            this.lblVersion.Location = new System.Drawing.Point(421, 210);
-            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(34, 15);
-            this.lblVersion.TabIndex = 4;
-            this.lblVersion.Text = "3.0.2";
+            lblVersion.AutoSize = true;
+            lblVersion.BackColor = Color.Transparent;
+            lblVersion.Font = new Font("Calibri", 9.75F, FontStyle.Bold);
+            lblVersion.ForeColor = Color.Gray;
+            lblVersion.Location = new Point(409, 205);
+            lblVersion.Margin = new Padding(4, 0, 4, 0);
+            lblVersion.Name = "lblVersion";
+            lblVersion.Size = new Size(41, 15);
+            lblVersion.TabIndex = 4;
+            lblVersion.Text = "10.0.0";
             // 
             // lblStatus
             // 
-            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatus.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(255)))), ((int)(((byte)(156)))));
-            this.lblStatus.Location = new System.Drawing.Point(192, 225);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(262, 15);
-            this.lblStatus.TabIndex = 3;
-            this.lblStatus.Text = "Searching for updates...";
-            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            lblStatus.BackColor = Color.Transparent;
+            lblStatus.Font = new Font("Calibri", 9.75F, FontStyle.Bold);
+            lblStatus.ForeColor = Color.FromArgb(28, 255, 156);
+            lblStatus.Location = new Point(192, 225);
+            lblStatus.Margin = new Padding(4, 0, 4, 0);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(262, 15);
+            lblStatus.TabIndex = 3;
+            lblStatus.Text = "Searching for updates...";
+            lblStatus.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pbLogo
             // 
-            this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
-            this.pbLogo.Location = new System.Drawing.Point(0, 0);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(454, 240);
-            this.pbLogo.TabIndex = 0;
-            this.pbLogo.TabStop = false;
+            pbLogo.Dock = DockStyle.Fill;
+            pbLogo.Image = (Image)resources.GetObject("pbLogo.Image");
+            pbLogo.Location = new Point(0, 0);
+            pbLogo.Margin = new Padding(4, 3, 4, 3);
+            pbLogo.Name = "pbLogo";
+            pbLogo.Size = new Size(454, 240);
+            pbLogo.TabIndex = 0;
+            pbLogo.TabStop = false;
             // 
             // timerLoad
             // 
-            this.timerLoad.Interval = 2000;
-            this.timerLoad.Tick += new System.EventHandler(this.Timer_Tick);
+            timerLoad.Interval = 2000;
+            timerLoad.Tick += Timer_Tick;
             // 
             // WelcomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 242);
-            this.Controls.Add(this.panelMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "WelcomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Welcome";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.WelcomeForm_Load);
-            this.panelMain.ResumeLayout(false);
-            this.panelMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(456, 242);
+            Controls.Add(panelMain);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "WelcomeForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Welcome";
+            TopMost = true;
+            Load += WelcomeForm_Load;
+            panelMain.ResumeLayout(false);
+            panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();
+            ResumeLayout(false);
 
         }
 
