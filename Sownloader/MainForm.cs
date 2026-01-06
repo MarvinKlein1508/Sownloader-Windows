@@ -1,6 +1,7 @@
-#if DEBUG
+﻿#if DEBUG
 //#define TEST_UPDATE_SERVICE
 #endif
+using Microsoft.Web.WebView2.Core;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using Serilog;
 using Sownloader.Core;
@@ -158,9 +159,26 @@ public partial class MainForm : DarkControls.DarkThemeForm
 
     private void ExitToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
 
-    private void MainForm_Load(object sender, EventArgs e)
+    private async void MainForm_Load(object sender, EventArgs e)
     {
+        MainWebView.CoreWebView2InitializationCompleted += WebView2_CoreWebView2InitializationCompleted;
+        await MainWebView.EnsureCoreWebView2Async();
         NavigateWebView(_settings.DefaultPage);
+    }
+
+
+    private void WebView2_CoreWebView2InitializationCompleted(object? sender, CoreWebView2InitializationCompletedEventArgs e)
+    {
+        if (!e.IsSuccess)
+        {
+            MessageBox.Show($"WebView2 init failed: {e.InitializationException}");
+            return;
+        }
+
+        MainWebView.CoreWebView2.SourceChanged += (obj, e) =>
+        {
+            MainWebView.Reload();
+        };
     }
 
     private void CopyMediaURLToolStripMenuItem_Click(object sender, EventArgs e)
@@ -394,4 +412,14 @@ public partial class MainForm : DarkControls.DarkThemeForm
     }
 
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e) => Environment.Exit(0);
+
+    private void MainWebView_ContentLoading(object sender, Microsoft.Web.WebView2.Core.CoreWebView2ContentLoadingEventArgs e)
+    {
+        Console.WriteLine("Loading...");
+    }
+
+    private void MainWebView_LocationChanged(object sender, EventArgs e)
+    {
+        Console.WriteLine("Loading...");
+    }
 }

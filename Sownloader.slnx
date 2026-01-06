@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="CHANGELOG.MD" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+	<Project Path="src/Sownloader.Core/Sownloader.Core.csproj" />
+	<Project Path="src/Sownloader/Sownloader.csproj" />
+  </Folder>
+</Solution>
